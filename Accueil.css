@@ -587,12 +587,14 @@ body.blur-active .blur-wrapper {
 
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   body {
-    transform: scale(0.07);
-    transform-origin: top;
+    transform: scale(0.67);
+    transform-origin: center;
     background-color:red;
   }
   .fixed-container {gap:400px}
+.logo-bar {margin-left:100px=
 }
+
 
 
 
