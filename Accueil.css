@@ -584,6 +584,17 @@ body.blur-active .blur-wrapper {
 .video-thumb:hover {
   transform: scale(1.05);
 }
+@media (pointer: coarse) {
+  body {
+    background-color: red;
+  }
+
+  .menu-item .expanded {
+    width: 200px;
+    color: #ff0000;
+  }
+}
+
 
 
 
