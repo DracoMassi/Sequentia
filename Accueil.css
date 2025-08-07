@@ -585,7 +585,7 @@ body.blur-active .blur-wrapper {
   transform: scale(1.05);
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   body {
     transform-origin: top;
     box-sizing:border-box;
@@ -606,6 +606,7 @@ body.blur-active .blur-wrapper {
 margin-left:200px;
 }
 }
+
 
 
 
