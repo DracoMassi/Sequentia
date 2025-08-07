@@ -16,8 +16,9 @@
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   body {
-    transform: scale(0.8);
+    transform: scale(0.67);
     transform-origin: top;
+    background-color:red;
   }
 }
 /* Global */
@@ -589,6 +590,7 @@ body.blur-active .blur-wrapper {
 .video-thumb:hover {
   transform: scale(1.05);
 }
+
 
 
 
