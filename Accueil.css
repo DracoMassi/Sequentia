@@ -585,28 +585,6 @@ body.blur-active .blur-wrapper {
   transform: scale(1.05);
 }
 
-@media screen and (max-width: 767px) {
-  body {
-    transform-origin: top;
-    box-sizing:border-box;
-  }
-  .fixed-container {gap:400px}
-.logo-bar {margin-left:50px}
-   }
-.menu {
-  transform: scale(0.9);
-  flex-direction:column;
-  gap: 23px;
-  padding: 10px 10px;
-  background-color:red;
-  align-item:center;
-  justify-content:center;
-}
-.blur-wrapper {
-margin-left:200px;
-}
-}
-
 
 
 
