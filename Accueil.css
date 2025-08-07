@@ -599,8 +599,14 @@ body.blur-active .blur-wrapper {
   gap: 23px;
   padding: 10px 10px;
   background-color:red;
+  align-item:center;
+  justify-content:center;
+}
+.blur-wrapper {
+margin-left:200px;
 }
 }
+
 
 
 
