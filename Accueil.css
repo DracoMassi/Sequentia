@@ -14,6 +14,12 @@
   src: url('fonts/Andaluz-Regular.otf') format('truetype');
   font-weight: bold;
 }
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  body {
+    transform: scale(0.8);
+    transform-origin: top;
+  }
+}
 /* Global */
 body {
   background-color: #020411;
@@ -583,5 +589,6 @@ body.blur-active .blur-wrapper {
 .video-thumb:hover {
   transform: scale(1.05);
 }
+
 
 
