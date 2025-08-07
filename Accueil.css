@@ -16,10 +16,11 @@
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 3) {
   body {
-    transform: scale(0.67);
+    transform: scale(0.07);
     transform-origin: top;
     background-color:red;
   }
+  .fixed-container {gap:400px}
 }
 /* Global */
 body {
@@ -590,6 +591,7 @@ body.blur-active .blur-wrapper {
 .video-thumb:hover {
   transform: scale(1.05);
 }
+
 
 
 
