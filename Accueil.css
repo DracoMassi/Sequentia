@@ -595,16 +595,13 @@ body.blur-active .blur-wrapper {
    }
 .menu {
   transform: scale(0.9);
-  display: flex;
   flex-direction:column;
   gap: 23px;
   padding: 10px 10px;
   background-color:red;
-  border-radius: 11px;
-  flex-wrap: nowrap;
-  overflow: hidden;
 }
 }
+
 
 
 
