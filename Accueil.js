@@ -171,3 +171,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+const menu = document.querySelector('.menu');
+const menuGrand = document.querySelector('.Menugrand');
+
+if (menu && menuGrand) {
+  menu.addEventListener('click', () => {
+    menuGrand.classList.toggle('clicked');
+  });
+}
+function ajusterLargeurBody() {
+  // Récupérer la largeur de la fenêtre
+  const largeurFenetre = window.innerWidth;
+
+  // Appliquer cette largeur au body
+  document.body.style.width = largeurFenetre + "px";
+}
+
+// Ajuster au chargement de la page
+window.addEventListener("load", ajusterLargeurBody);
+
+// Ajuster aussi à chaque redimensionnement
+window.addEventListener("resize", ajusterLargeurBody);
