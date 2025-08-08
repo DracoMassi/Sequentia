@@ -14,12 +14,12 @@
   src: url('fonts/Andaluz-Regular.otf') format('truetype');
   font-weight: bold;
 }
-
 /* Global */
 body {
+  overflow-x:none;
+  margin:0 auto;
+  width: 1400px;
   background-color: #020411;
-  margin: 0 auto;
-  overflow-x: hidden;
   font-family: 'Melbourne', sans-serif;
   display: flex;
   justify-content: center;
@@ -33,6 +33,7 @@ body {
   transform: translateX(-50%);
   width: 100%;
   max-width: 1940px;
+  max-height:73px;
   padding: 0 60px;
   display: flex;
   align-items: flex-start; /* aligne en haut */
@@ -40,7 +41,6 @@ body {
   z-index: 1000;
   box-sizing: border-box;
   pointer-events: none;
-  gap: 500px; /* espace horizontal fixe entre logo et menu */
 }
 
 .fixed-container .logo-bar,
@@ -50,15 +50,12 @@ body {
 
 /* Logo */
 .logo-bar {
-  display: flex;
-  align-items: flex-start;
-}
-
-.logo-bar img {
-  height: 60px;
-  max-width: 200px;
-  width: auto;
-  margin: 0; /* aucune marge parasite */
+  height: 73px;
+  width: 240px;
+  background-image: url(Image/Sequentia\ Logo\ Grand.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 /* Menu */
@@ -71,7 +68,6 @@ body {
   flex-wrap: nowrap;
   overflow: hidden;
 }
-
 .menu-item {
   color: white;
   font-family: 'Melbourne', sans-serif;
@@ -137,8 +133,11 @@ body {
   pointer-events: auto;
 }
 
-.menu-container {
-  position: relative; /* nécessaire pour que help-box se place par rapport à ce conteneur */
+i
+
+/* Logo grand (facultatif) */
+.GrandLogo {
+  padding-top: 150px;
 }
 
 /* Call-to-action button */
@@ -160,7 +159,7 @@ body {
   transition-duration: 1000ms;
 }
 .cta-button:hover {
-  color: rgb(66, 66, 66);
+  color:#020411; 
   font-size: 30px;
   background-color:white
 }
@@ -242,6 +241,7 @@ main {
 }
 
 .violet-bg {
+  margin-left: 50px;
   width: 860px;
   height: auto;
   display: block;
@@ -250,7 +250,7 @@ main {
 .info-text {
   position: absolute;
   top: 20%;
-  left: 10%;
+  left: 16%;
   color: white;
   font-family: 'Melbourne', sans-serif;
   width: 80%;
@@ -267,13 +267,14 @@ main {
 }
 
 .info-text p {
+  position:relative;
+  left: 10%;
   font-family: "Melbournethin";
-  text-align: right;
-  text-justify: right;
+  text-align: left;
   margin-left: -20px;
   font-size: 35px;
   line-height: 1.2;
-  width: 700px;
+  width: 600px;
 }
 
 .info-right .roman-image {
@@ -393,13 +394,11 @@ margin: 20px 20px;
   align-items: center;
   background-repeat: no-repeat;
   justify-content: flex-end;
-  width: 750px;
+  width: 800px;
   height: 900px;
 }
 
 .droite-section .info-text {
-  right: 400px;
-  top : 200px;
   color:  rgb(255, 255, 255);
   font-family: 'Melbourne', sans-serif;
   width: 60%;
@@ -410,6 +409,7 @@ margin: 20px 20px;
   font-size: 160px;
   font-weight: bold;
   left:100px;
+  margin-left: -15%;
   margin-bottom:-100px;
 }
 
@@ -417,7 +417,7 @@ margin: 20px 20px;
   font-family: "Melbournethin";
   text-align: right;
   text-justify: right;
-  margin-left: -20px;
+  margin-left: -20%;
   margin-top:-120px;
   font-size: 40px;
   line-height: 1.2;
@@ -452,14 +452,17 @@ body.blur-active .blur-wrapper {
   background: url("Image/FondTiktok.svg") no-repeat left top;
   background-size: cover;
   z-index: 0;
-  margin-top: -100px; /* si tu veux chevaucher un peu le bas */
+  margin-top:-20%;
   pointer-events: none;
 }
 .last-section h3{
   font-family: "Melbourne";
   font-size: 80px;
+  margin-top: 10%;
 }
 .last-section h4{
+  margin-top: -100px;
+  margin-bottom: -3%;
   font-family: "Andaluz";
   font-size: 120px;
 }
@@ -577,34 +580,76 @@ body.blur-active .blur-wrapper {
   height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .video-thumb:hover {
   transform: scale(1.05);
 }
-@media (pointer: coarse) {
-  body {
-    background-color: red;
+@media (pointer: coarse) and (max-width: 720px){
+ body{
+  overflow-x:hidden;
+  min-width: 430px;
+  max-width:430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ }
+  .logo-bar {
+    filter: brightness(0.7);
+    background-image: url("Image/S.png");
+    height: 5vw;
+    width: 5vw;
+  }
+  header{z-index:10000000}
+  .fixed-container{
+  top: 42px;
+  margin-right: 20%;
+  min-width: 100px;
+  width: 100%;
+  max-width: 720px;
+  justify-content:space-between;
+  gap:auto;
+  height: 50px;
+  }
+   .image-box {
+    transform: scale(0.5);
+  }
+  .info-section {
+    margin-top:-15%;
+    transform: scale(0.5);
+  }
+  .info-right{display:none}
+
+  .info-left{justify-self: center;}
+
+ .menu {
+  background-image: url(Image/MenuMobile.png);
+  background-size: 25%;
+  background-position:center;
+  background-repeat:no-repeat;
+    background-color:rgba(27, 29, 40, 1) ;
+    color: none;
+    height: 70%;
+    aspect-ratio: 1;
+    padding:10px;
+  }
+  .menu-item, .help-button{display:none;}
+  .GrandLogo img {
+    margin-top:-5%;
+    transform: scale(0.6);
   }
 
-  .menu-item .expanded {
-    width: 200px;
-    color: #ff0000;
+  .cta-button {
+    width: 90vw;
+    max-width: 360px;
   }
 }
+@media (max-width: 1080px) {
+  .cta-button {color: rgb(255, 255, 255);}
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (min-width: 1080px) {
+  .cta-button {color: #ffffff;}
+}
