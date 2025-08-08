@@ -1,42 +1,74 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === HELP BOX MENU ===
-  const items = document.querySelectorAll('.menu-item');
-  const helpButton = document.querySelector('.help-button');
-  const helpBox = document.querySelector('.help-box');
-  const logo = document.getElementById('logo');
-  const buyButton = document.getElementById("buy-button");
-  const gridItems = document.querySelectorAll('#gradient-grid .circle-item');
+
+  /* -------------------------
+     VARIABLES & ÉLÉMENTS DOM
+  ------------------------- */
+  const menuItems   = document.querySelectorAll('.menu-item');
+  const helpButton  = document.querySelector('.help-button');
+  const helpBox     = document.querySelector('.help-box');
+  const logo        = document.getElementById('logo');
+  const buyButton   = document.getElementById("buy-button");
+  const gridItems   = document.querySelectorAll('#gradient-grid .circle-item');
+  const menu        = document.querySelector(".menu");
+  const toggleBtn   = document.getElementById("footer-toggle-btn");
+  const closeBtn    = document.getElementById("footer-close-btn");
+  const footerPanel = document.getElementById("footer-panel");
 
   let helpTimeout;
-  const sequence = "SEQUENTIA";
-  let buffer = "";
+  const easterEggSequence = "SEQUENTIA";
+  let keyBuffer = "";
 
-  // Help Box toggle
-  helpButton.addEventListener('click', () => {
-    const anyItemExpanded = [...items].some(item => item.classList.contains('expanded'));
-    if (anyItemExpanded) return;
+  const gradientColors = [
+    "#FFA1A1", "#FFE4BE", "#CCFF9F", 
+    "#B7DACC", "#7893FF", "#C269F3", "#FF64D1"
+  ];
 
-    const isNowVisible = helpBox.classList.toggle('visible');
+  /* -------------------------
+     FONCTIONS UTILITAIRES
+  ------------------------- */
+  const hexToRgb = (hex) => {
+    const bigint = parseInt(hex.slice(1), 16);
+    return [
+      (bigint >> 16) & 255,
+      (bigint >> 8) & 255,
+      bigint & 255
+    ];
+  };
 
-    if (isNowVisible) {
-      clearTimeout(helpTimeout);
-      helpTimeout = setTimeout(() => {
-        helpBox.classList.remove('visible');
-      }, 4000);
-    } else {
-      helpBox.classList.remove('visible');
-    }
-  });
+  const interpolateColor = (color1, color2, factor) => {
+    return color1.map((c, i) => Math.round(c + factor * (color2[i] - c)));
+  };
 
-  // Menu items hover effect
-  items.forEach(item => {
+  /* -------------------------
+     HELP BOX
+  ------------------------- */
+  if (helpButton && helpBox) {
+    helpButton.addEventListener('click', () => {
+      const anyExpanded = [...menuItems].some(item => item.classList.contains('expanded'));
+      if (anyExpanded) return;
+
+      const isVisible = helpBox.classList.toggle('visible');
+
+      if (isVisible) {
+        clearTimeout(helpTimeout);
+        helpTimeout = setTimeout(() => {
+          helpBox.classList.remove('visible');
+        }, 4000);
+      }
+    });
+  }
+
+  /* -------------------------
+     MENU ITEMS HOVER
+  ------------------------- */
+  menuItems.forEach(item => {
     let timeout;
 
     item.addEventListener('mouseenter', () => {
       clearTimeout(timeout);
       item.classList.add('expanded');
 
-      if (helpBox.classList.contains('visible')) {
+      if (helpBox?.classList.contains('visible')) {
         helpBox.classList.remove('visible');
         clearTimeout(helpTimeout);
       }
@@ -49,47 +81,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Logo scroll to top
+  /* -------------------------
+     LOGO ACTIONS
+  ------------------------- */
   if (logo) {
     logo.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Blur effect on logo hover
-    logo.addEventListener("mouseenter", () => document.body.classList.add("blur-active"));
-    logo.addEventListener("mouseleave", () => document.body.classList.remove("blur-active"));
+    logo.addEventListener("mouseenter", () => {
+      document.body.classList.add("blur-active");
+    });
+    logo.addEventListener("mouseleave", () => {
+      document.body.classList.remove("blur-active");
+    });
   }
 
-  // Blur effect on menu
-  const menu = document.querySelector(".menu");
+  /* -------------------------
+     MENU BLUR EFFECT
+  ------------------------- */
   if (menu) {
-    menu.addEventListener("mouseenter", () => document.body.classList.add("blur-active"));
-    menu.addEventListener("mouseleave", () => document.body.classList.remove("blur-active"));
+    menu.addEventListener("mouseenter", () => {
+      document.body.classList.add("blur-active");
+    });
+    menu.addEventListener("mouseleave", () => {
+      document.body.classList.remove("blur-active");
+    });
   }
 
-  // Easter egg SEQUENTIA => rainbow button
+  /* -------------------------
+     EASTER EGG (SEQUENTIA)
+  ------------------------- */
   document.addEventListener("keydown", (e) => {
-    buffer += e.key.toUpperCase();
-    if (buffer.length > sequence.length) buffer = buffer.slice(-sequence.length);
+    keyBuffer += e.key.toUpperCase();
+    if (keyBuffer.length > easterEggSequence.length) {
+      keyBuffer = keyBuffer.slice(-easterEggSequence.length);
+    }
 
-    if (buffer === sequence && buyButton) {
+    if (keyBuffer === easterEggSequence && buyButton) {
       buyButton.classList.add("rainbow");
       setTimeout(() => buyButton.classList.remove("rainbow"), 10000);
     }
   });
 
-  // Gradient Color Logic
-  const gradientColors = ["#FFA1A1", "#FFE4BE", "#CCFF9F", "#B7DACC", "#7893FF", "#C269F3", "#FF64D1"];
-
-  function hexToRgb(hex) {
-    const bigint = parseInt(hex.slice(1), 16);
-    return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
-  }
-
-  function interpolateColor(color1, color2, factor) {
-    return color1.map((c, i) => Math.round(c + factor * (color2[i] - c)));
-  }
-
+  /* -------------------------
+     GRADIENT GRID COLORS
+  ------------------------- */
   gridItems.forEach((circle, index) => {
     const circleBg = circle.querySelector('.circle-bg');
     if (!circleBg) return;
@@ -108,29 +145,29 @@ document.addEventListener("DOMContentLoaded", () => {
     circleBg.style.backgroundColor = `rgb(${interpolated.join(",")})`;
   });
 
-  // === Footer Toggle Logic ===
-  const toggleBtn = document.getElementById("footer-toggle-btn");
-  const closeBtn = document.getElementById("footer-close-btn");
-  const footerPanel = document.getElementById("footer-panel");
-
+  /* -------------------------
+     FOOTER TOGGLE
+  ------------------------- */
   if (toggleBtn && closeBtn && footerPanel) {
     toggleBtn.addEventListener("click", () => {
       footerPanel.classList.add("open");
-      toggleBtn.classList.add("hidden");  // Hide toggle
+      toggleBtn.classList.add("hidden");
     });
 
     closeBtn.addEventListener("click", () => {
       footerPanel.classList.remove("open");
-      toggleBtn.classList.remove("hidden");  // Show toggle again
+      toggleBtn.classList.remove("hidden");
     });
   }
 
-  // === Anti-Zoom Keyboard Shortcut ===
+  /* -------------------------
+     ANTI-ZOOM CLAVIER
+  ------------------------- */
   document.addEventListener("keydown", (event) => {
-    if ((event.ctrlKey || event.metaKey) && 
-        (event.key === '+' || event.key === '-' || event.key === '=' || event.key === '0')) {
+    if ((event.ctrlKey || event.metaKey) &&
+        ['+', '-', '=', '0'].includes(event.key)) {
       event.preventDefault();
     }
   });
-});
 
+});
