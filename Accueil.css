@@ -16,9 +16,7 @@
 }
 /* Global */
 body {
-  overflow-x:hidden;
-  margin:0 auto;
-  width: 100%;
+  width: 100vw;
   background-color: #020411;
   font-family: 'Melbourne', sans-serif;
   display: flex;
@@ -136,19 +134,21 @@ body {
 
 /* Logo grand (facultatif) */
 .GrandLogo {
-  padding-top: 150px;
+  margin-top: 150px;
+  box-sizing: content-box;
 }
 
 /* Call-to-action button */
 .cta-button {
   width: 645px;
   height: 96px;
-  margin: 60px auto;
+  margin: 0;
   border-radius: 90px;
   border: 5px solid white;
   box-shadow: 0px 4px 4px rgba(160, 171, 255, 0.5);
   display: flex;
   align-items: center;
+  justify-self: center;
   justify-content: center;
   font-family: 'Melbourne', sans-serif;
   font-size: 24px;
@@ -157,15 +157,20 @@ body {
   cursor: pointer;
   transition-duration: 1000ms;
 }
+
 .cta-button:hover {
-  color:#020411; 
-  font-size: 30px;
-  background-color:white
+  color: #020411;
+  font-size: clamp(18px, 2.5vw, 30px);
+  background-color: white;
 }
+
 /* Contenu principal */
 main {
   margin-top: 200px;
   text-align: center;
+  margin-left: 0px;
+  margin-right:0px;
+  padding:0px;
 }
 .image-box {
   display: flex;
@@ -229,18 +234,16 @@ main {
 .info-section {
   display: flex;
   gap: 40px;
-  gap: 100px;
   width: fit-content;
 }
 
 .info-left {
-  position: relative;
-  width: 1000px; /* ajuste selon ton besoin */
+  position: relative; /* ajuste selon ton besoin */
 }
 
 .violet-bg {
   margin-left: 50px;
-  width: 860px;
+  width: 80%;
   height: auto;
   display: block;
 }
@@ -260,19 +263,19 @@ main {
   font-size: 160px;
   font-weight: bold;
   margin: 0 0 10px;
-  left:100px;
+  margin-left: 13%;
   margin-bottom:-100px;
 }
 
 .info-text p {
   position:relative;
-  left: 10%;
+  left: 0%;
   font-family: "Melbournethin";
   text-align: left;
-  margin-left: -20px;
+  margin-left: -10%;
   font-size: 35px;
   line-height: 1.2;
-  width: 600px;
+  width: 90%;
 }
 
 .info-right .roman-image {
@@ -400,6 +403,7 @@ margin: 20px 20px;
   color:  rgb(255, 255, 255);
   font-family: 'Melbourne', sans-serif;
   width: 60%;
+    margin-right: 13%;
 }
 
 .droite-section .info-text h2 {
@@ -407,7 +411,7 @@ margin: 20px 20px;
   font-size: 160px;
   font-weight: bold;
   left:100px;
-  margin-left: -15%;
+  margin-right: 10%;
   margin-bottom:-100px;
 }
 
@@ -415,7 +419,7 @@ margin: 20px 20px;
   font-family: "Melbournethin";
   text-align: right;
   text-justify: right;
-  margin-left: -20%;
+  margin-right: 13%;
   margin-top:-120px;
   font-size: 40px;
   line-height: 1.2;
@@ -577,11 +581,12 @@ body.blur-active .blur-wrapper {
 }
 @media (pointer: coarse){
  body{
-  display:auto;
+  display:flex;
  }
 
   .logo-bar {
-background-position: center center;
+    background-position: center center;
+    margin-top:0px ;
     background-image: url("Image/S.png");
     height: 100%;
     width: 5vw;
@@ -630,7 +635,8 @@ background-position: center center;
 .gauche-section{display:none;}
 
 .droite-section{
-  right:6%;
+  right:0;
+  background-position: right;
 }
 .last-section h3{
   font-family: "Melbourne";
@@ -653,13 +659,14 @@ background-position: center center;
     padding:10px;
   }
   .menu-item, .help-button{display:none;}
-  .GrandLogo img {
-    margin-top:-5%;
+  .GrandLogo {
+    margin-top:-10%;
     transform: scale(0.6);
   }
   
   .Menugrand {
-  position: fixed;
+  display: none;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -668,17 +675,19 @@ background-position: center center;
   background-color: rgba(2, 4, 17, 0.95);
   color: white;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
 
   transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.7s ease;
   z-index: 9999;
 }
 
 /* Quand .clicked est activé → visible */
 .Menugrand.clicked {
+  position:fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: translateX(0);
   width: 100vw;
   height: 120vh;
