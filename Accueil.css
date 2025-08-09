@@ -14,14 +14,7 @@
   src: url('fonts/Andaluz-Regular.otf') format('truetype');
   font-weight: bold;
 }
-/* Global */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-}
+
 body {
   font-family: 'Melbourne', sans-serif;
   background-color: #020411;
@@ -169,7 +162,7 @@ body {
 
 .cta-button:hover {
   color: #020411;
-  font-size: clamp(18px, 2.5vw, 30px);
+  font-size: 30px;
   background-color: white;
 }
 
@@ -734,8 +727,7 @@ display: flex;
 }
 
   .cta-button {
-    width: 90vw;
-    max-width: 360px;
+    width: 30%;
   }
 }
 @media (max-width: 1080px) {
