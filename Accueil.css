@@ -347,6 +347,7 @@ margin: 20px 20px;
   margin-bottom: 100px;
   margin-left: 50px;
   background-image: url(Image/Grille.svg);
+  box-sizing: content-box;
 }
 .circle-item {
   position: relative;
@@ -446,7 +447,6 @@ body.blur-active .blur-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -400px;
   background: url("Image/FondTiktok.svg") no-repeat center top;
   z-index: 1;
 }
