@@ -15,15 +15,24 @@
   font-weight: bold;
 }
 /* Global */
-body {
-  width: 100vw;
-  background-color: #020411;
-  font-family: 'Melbourne', sans-serif;
-  display: flex;
-  z-index:1;
-  justify-content: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
 }
-
+body {
+  font-family: 'Melbourne', sans-serif;
+  background-color: #020411;
+  display: flex;              /* déjà présent, on le conserve */
+  flex-direction: column;     /* empile header -> main -> footer */
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;          /* s'assure que le body couvre l'écran entier */
+  width: 100%;
+  overflow-x: hidden;         /* évite scroll horizontal causant parfois un gap */
+}
 /* Conteneur fixe : aligne logo et menu */
 .fixed-container {
   position: fixed;
@@ -378,7 +387,9 @@ margin: 20px 20px;
   filter: blur(10px);
   z-index: 0;
 }
-
+.last-section h3 br{
+  display: none;
+  }
 /* TEXTE NET au-dessus */
 .circle-item span {
   position: relative;
@@ -437,6 +448,7 @@ body.blur-active .blur-wrapper {
 /* Section principale */
 .last-section {
   position: relative;
+  background-color: #7893FF;
   color: white;
   display: flex;
   justify-content: center;
@@ -582,6 +594,7 @@ body.blur-active .blur-wrapper {
 @media (pointer: coarse){
  body{
   display:flex;
+  overflow-x:hidden;
  }
 
   .logo-bar {
@@ -603,6 +616,7 @@ body.blur-active .blur-wrapper {
   height: 50px;
   }
    .image-box {
+    margin-top: -5%;
     transform: scale(0.5);
   }
   .info-section {
@@ -613,9 +627,12 @@ body.blur-active .blur-wrapper {
   .info-right{display:none}
 
   .info-left{
-    left:20%;
+    left:14%;
     justify-self: center;}
-
+.info-left p{
+  left:20%;
+width: 60%;
+}
 .textes-section{
   width:100%;
   margin-top:-25%;
@@ -627,24 +644,26 @@ body.blur-active .blur-wrapper {
 .last-section{
   margin-top: -50%;
   width: 100%;
-  height: content;
-  transform: scale(0.6);
+  height: auto;
   background-position:top;
   overflow-y:hidden;
 }
 .gauche-section{display:none;}
 
 .droite-section{
-  right:0;
+  right:18%;
   background-position: right;
 }
 .last-section h3{
   font-family: "Melbourne";
   font-size: 50px;
 }
+.last-section h3 br{
+display: flex;
+}
 .last-section h4{
   margin-top: -10px;
-  font-size: 70px;
+  font-size: 75px;
 }
  .menu {
   flex-direction: flex-start;
@@ -682,6 +701,7 @@ body.blur-active .blur-wrapper {
   z-index: 9999;
 }
 
+
 /* Quand .clicked est activé → visible */
 .Menugrand.clicked {
   position:fixed;
@@ -690,7 +710,7 @@ body.blur-active .blur-wrapper {
   align-items: center;
   transform: translateX(0);
   width: 100vw;
-  height: 120vh;
+  height: 100vh;
 }
 
 .Menugrand ul {
