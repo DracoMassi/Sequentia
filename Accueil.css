@@ -415,7 +415,6 @@ margin: 20px 20px;
   top:-120px;
   font-size: 160px;
   font-weight: bold;
-  left:100px;
   margin-right: 10%;
   margin-bottom:-100px;
 }
@@ -638,6 +637,7 @@ width: 60%;
 .last-section {
   margin-top: 0%;
   min-width: fit-content;
+  width:100%;
   height: auto;
   background-image: none;
   background-color: rgba(152, 165, 255,1);
