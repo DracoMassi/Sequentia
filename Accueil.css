@@ -16,6 +16,7 @@
 }
 
 body {
+  margin:0 auto;
   font-family: 'Melbourne', sans-serif;
   background-color: #020411;
   display: flex;              /* déjà présent, on le conserve */
@@ -635,11 +636,10 @@ width: 60%;
   justify-content: right;
 }
 .last-section {
-  margin-top: -0%;
-  width: 100%;
+  margin-top: 0%;
+  min-width: fit-content;
   height: auto;
   background-image: none;
-  overflow-y:hidden;
   background-color: rgba(152, 165, 255,1);
 }
 .gauche-section{display:none;}
