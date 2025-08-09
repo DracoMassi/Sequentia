@@ -727,7 +727,7 @@ display: flex;
 }
 
   .cta-button {
-    width: 30%;
+    width: 270px;
   }
 }
 @media (max-width: 1080px) {
@@ -737,3 +737,4 @@ display: flex;
 @media (min-width: 1080px) {
   .cta-button {color: #ffffff;}
 }
+
