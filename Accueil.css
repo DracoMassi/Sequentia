@@ -635,15 +635,17 @@ width: 60%;
   justify-content: right;
 }
 .last-section {
-  margin-top: -50%;
+  margin-top: -0%;
   width: 100%;
   height: auto;
+  background-image: none;
   overflow-y:hidden;
+  background-color: rgba(152, 165, 255,1);
 }
 .gauche-section{display:none;}
 
 .droite-section{
-  right:18%;
+  right:15%;
   background-position: right;
 }
 .last-section h3{
@@ -724,7 +726,6 @@ display: flex;
 .Menugrand ul li a:hover {
   color: #FF64D1;
 }
-
   .cta-button {
     width: 300px;
     font-size: 20px;
@@ -740,5 +741,3 @@ display: flex;
 @media (min-width: 1080px) {
   .cta-button {color: #ffffff;}
 }
-
-
