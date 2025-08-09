@@ -447,7 +447,7 @@ body.blur-active .blur-wrapper {
   justify-content: center;
   align-items: center;
   margin-top: -400px;
-  background: url("Image/FondTiktok.svg") no-repeat left top;
+  background: url("Image/FondTiktok.svg") no-repeat center top;
   z-index: 1;
 }
 .last-section h3{
@@ -634,11 +634,10 @@ width: 60%;
   flex-direction: none;
   justify-content: right;
 }
-.last-section{
+.last-section {
   margin-top: -50%;
   width: 100%;
   height: auto;
-  background-position:top;
   overflow-y:hidden;
 }
 .gauche-section{display:none;}
@@ -727,7 +726,7 @@ display: flex;
 }
 
   .cta-button {
-    width: 270px;
+    width: 30%;
   }
 }
 @media (max-width: 1080px) {
@@ -737,4 +736,3 @@ display: flex;
 @media (min-width: 1080px) {
   .cta-button {color: #ffffff;}
 }
-
