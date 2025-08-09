@@ -726,7 +726,11 @@ display: flex;
 }
 
   .cta-button {
-    width: 30%;
+    width: 300px;
+    font-size: 20px;
+  }
+  .cta-button:hover {
+    font-size: 27px;;
   }
 }
 @media (max-width: 1080px) {
@@ -736,3 +740,4 @@ display: flex;
 @media (min-width: 1080px) {
   .cta-button {color: #ffffff;}
 }
+
