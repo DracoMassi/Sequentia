@@ -1,0 +1,326 @@
+/* Police Melbourne Bold */
+@font-face {
+  font-family: 'Melbourne';
+  src: url('fonts/melbournebold.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Melbournethin';
+  src: url('fonts/melbourne.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Andaluz';
+  src: url('fonts/Andaluz-Regular.otf') format('truetype');
+  font-weight: bold;
+}
+.Menugrand {display:none;
+}
+body {
+  overflow-x:visible;
+  margin:0 auto;
+  margin-bottom: 10%;
+  width: 1400px;
+  background-color: #020411;
+  font-family: 'Melbourne', sans-serif;
+  display: flex;
+  z-index:1;
+  justify-content: center;
+}
+
+/* Conteneur fixe : aligne logo et menu */
+.fixed-container {
+  position: fixed;
+  top: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1940px;
+  max-height:73px;
+  padding: 0 60px;
+  display: flex;
+  align-items: flex-start; /* aligne en haut */
+  justify-content: space-between;
+  z-index: 1000;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.fixed-container .logo-bar,
+.fixed-container .menu {
+  pointer-events: auto;
+}
+
+/* Logo */
+.logo-bar {
+  height: 73px;
+  width: 240px;
+  background-image: url(Image/Sequentia\ Logo\ Grand.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  gap: 23px;
+  padding: 14px 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.menu a{text-decoration:none;}
+.menu-item {
+  color: white;
+  font-family: 'Melbourne', sans-serif;
+  font-size: 25px;
+  width: 166px;
+  min-height: 53px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  height: 53px;
+}
+
+.menu-item.expanded {
+  height: 159px;
+}
+
+/* Bouton aide */
+.help-button {
+  color:white;
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Melbourne', sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.help-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Boîte d’aide */
+.help-box {
+  position: absolute;
+  top: 125%; /* juste en dessous du menu */
+  right: 55px; /* aligné à droite du menu */
+  width: 360px;
+  height: 160px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  padding: 16px;
+  font-family: 'Melbourne', sans-serif;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 998;
+}
+
+.help-box.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (pointer: coarse) and (max-width: 720px) {
+  body{
+   display: flex;
+   width: 100vw;
+   justify-content: center;
+  }
+  .menu {
+    flex-direction: flex-start;
+    background-image: url(Image/MenuMobile.webp);
+    background-size: 25%;
+    background-position:center;
+    background-repeat:no-repeat;
+      background-color:rgba(27, 29, 40, 1) ;
+      color: none;
+      height: 70%;
+      aspect-ratio: 1;
+      padding:10px;
+    }
+    .menu-item, .help-button{display:none;}
+    .GrandLogo img {
+      margin-top:-5%;
+      transform: scale(0.6);
+    }
+    
+    .Menugrand {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    background-color: rgba(2, 4, 17, 0.95);
+    color: white;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999;
+  }
+  
+  /* Quand .clicked est activé → visible */
+  .Menugrand.clicked {
+    transform: translateX(0);
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .Menugrand ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .Menugrand ul li {
+    margin: 20px 0;
+  }
+  
+  .Menugrand ul li a {
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+  }
+  
+  .Menugrand ul li a:hover {
+    color: #FF64D1;
+  }
+}
+.carrousel-section {
+  margin-top: 200px;
+  width: 100vw;
+  text-align: center;
+  color: white;
+}
+
+.section-title {
+  margin: 10vh;
+  font-size: 90px;
+  font-family: 'Andaluz', serif;
+}
+
+.carrousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  position: relative;
+}
+
+.carrousel-track {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  width: 100vw;
+}
+
+
+.nav {
+  background-color: #999CFF;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.nav:hover {
+  background-color: #7376db;
+}
+
+.nav.left {
+  margin-right: 20px;
+}
+
+.nav.right {
+  margin-left: 20px;
+}
+.carrousel-item {
+  position: relative;
+  width: 12%;
+  max-height: 500px;
+  background-color: #999CFF;
+  aspect-ratio: 0.707;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+}
+
+.carrousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carrousel-item:hover {
+  transform: scale(1.5);
+}
+
+.carrousel-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carrousel-item:hover .overlay {
+  opacity: 1;
+}
+.cta-button {
+  width: 645px;
+  height: 96px;
+  margin: 0 auto;
+  border-radius: 90px;
+  border: 5px solid white;
+  box-shadow: 0px 4px 4px rgba(160, 171, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  font-family: 'Melbourne', sans-serif;
+  font-size: 24px;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  transition-duration: 1000ms;
+}
+
+.cta-button:hover {
+  color: #020411;
+  font-size: 30px;
+  background-color: white;
+}
