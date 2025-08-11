@@ -1,17 +1,17 @@
 /* Police Melbourne Bold */
 @font-face {
   font-family: 'Melbourne';
-  src: url('fonts/melbournebold.ttf') format('truetype');
+  src: url('../../fonts/melbournebold.ttf') format('truetype');
   font-weight: bold;
 }
 @font-face {
   font-family: 'Melbournethin';
-  src: url('fonts/melbourne.ttf') format('truetype');
+  src: url('../../fonts/melbourne.ttf') format('truetype');
   font-weight: bold;
 }
 @font-face {
   font-family: 'Andaluz';
-  src: url('fonts/Andaluz-Regular.otf') format('truetype');
+  src: url('../../fonts/Andaluz-Regular.otf') format('truetype');
   font-weight: bold;
 }
 
