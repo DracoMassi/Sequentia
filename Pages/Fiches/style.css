@@ -14,7 +14,9 @@
   src: url('fonts/Andaluz-Regular.otf') format('truetype');
   font-weight: bold;
 }
+
 .Menugrand {display:none;
+
 }
 body {
   overflow-x:visible;
