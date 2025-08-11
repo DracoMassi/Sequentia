@@ -55,7 +55,7 @@ body {
 .logo-bar {
   height: 73px;
   width: 240px;
-  background-image: url(Image/Sequentia\ Logo\ Grand.webp);
+  background-image: url(../../Image/Sequentia\ Logo\ Grand.webp);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -144,7 +144,7 @@ body {
   }
   .menu {
     flex-direction: flex-start;
-    background-image: url(Image/MenuMobile.webp);
+    background-image: url(../../Image/MenuMobile.webp);
     background-size: 25%;
     background-position:center;
     background-repeat:no-repeat;
