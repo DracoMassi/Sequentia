@@ -59,7 +59,7 @@ body {
   background-size: contain;
   background-position: center center;
 }
-
+.menu a{text-decoration:none;}
 /* Menu */
 .menu {
   display: flex;
