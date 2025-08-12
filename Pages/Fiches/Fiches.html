@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
   <title>Fiches</title>
   <link rel="icon" href="../../Image/favicon.ico" type="image/x-icon">
-  <script src="Page.js" defer></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
+<script src="Page.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -106,6 +107,15 @@
     </a>
   </div>
 </div>
+     <model-viewer
+  src="../../models/1_euro_coin_1999_france_-_simple_scan (1).glb"
+  auto-rotate
+  rotation="0 90 0"
+  rotation-per-second="90deg"
+  camera-controls
+  auto-rotate-delay="100"
+  style="width: 1000px; height: 1000px;">
+</model-viewer>
 </main>
 </body>
 </html>
