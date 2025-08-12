@@ -138,6 +138,45 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
+.Partie {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height:50%;
+  margin: 2%;
+  margin-left: 0%;
+}
+.Piece{
+  height:90%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-lines {
+  margin-left: -10%;
+  display: flex;
+  flex-direction: column;
+}
+.line {
+transition: all 0.3s ease;
+white-space: nowrap;
+min-height: 1.2em;
+/* dégradé texte vertical : top blanc, bottom couleur fond */
+background: linear-gradient(to bottom, white 0%,  #020411 85%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;}
+.line:hover {
+  transform: translateY(-1%);
+  background:white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 @media (pointer: coarse) and (max-width: 720px) {
   body{
    display: flex;
@@ -210,6 +249,7 @@ body {
 }
 .carrousel-section {
   margin-top: 200px;
+  margin-bottom:200px;
   width: 100vw;
   text-align: center;
   color: white;
