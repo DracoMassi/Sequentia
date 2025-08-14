@@ -593,7 +593,7 @@ body.blur-active .blur-wrapper {
   .logo-bar {
     background-position: center center;
     margin-top:0px ;
-    background-image: url("Image/S.png");
+    background-image: url("Image/S.webp");
     height: 100%;
     width: 5vw;
   }
@@ -661,7 +661,7 @@ display: flex;
 }
  .menu {
   flex-direction: flex-start;
-  background-image: url(Image/MenuMobile.png);
+  background-image: url(Image/MenuMobile.webp);
   background-size: 25%;
   background-position:center;
   background-repeat:no-repeat;
@@ -741,3 +741,4 @@ display: flex;
 @media (min-width: 1080px) {
   .cta-button {color: #ffffff;}
 }
+
