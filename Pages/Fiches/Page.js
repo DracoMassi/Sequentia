@@ -171,54 +171,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* -------------------------
-     CARROUSELS AVEC SENS INVERSE POUR carrouseldeux
+     CARROUSELS SIMPLIFIÉS
   ------------------------- */
   document.querySelectorAll('.carrousel').forEach((carrousel) => {
     const track = carrousel.querySelector('.carrousel-track');
     const originalItems = Array.from(track.children);
 
-    // Clone items pour boucle infinie
+    // Clone pour boucle infinie
     originalItems.forEach(item => {
       const clone = item.cloneNode(true);
       track.appendChild(clone);
     });
 
-    const items = Array.from(track.children);
     let scrollAmount = 0;
-    const baseStep = 0.5; // pixels par frame
-
-    // Sens du scroll selon la classe carrouseldeux
+    const baseStep = 0.5; // pixels/frame
     const autoStep = carrousel.classList.contains('carrouseldeux') ? -baseStep : baseStep;
-
-    function updateScale() {
-      const carrouselRect = carrousel.getBoundingClientRect();
-      const centerX = carrouselRect.left + carrouselRect.width / 2;
-
-      let closestItem = null;
-      let closestDistance = Infinity;
-
-      items.forEach(item => {
-        const rect = item.getBoundingClientRect();
-        const itemCenterX = rect.left + rect.width / 2;
-        const distance = Math.abs(itemCenterX - centerX);
-
-        item.style.transition = "transform 0.3s";
-        item.style.transform = "scale(1)";
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestItem = item;
-        }
-      });
-
-      if (closestItem) {
-        closestItem.style.transform = "scale(1.1)";
-      }
-    }
 
     function autoScroll() {
       scrollAmount += autoStep;
-
       const halfScroll = track.scrollWidth / 2;
 
       if (scrollAmount >= halfScroll) {
@@ -228,13 +198,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       track.scrollLeft = scrollAmount;
-
-      updateScale();
       requestAnimationFrame(autoScroll);
     }
 
     autoScroll();
-
   });
 
 });
