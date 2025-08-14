@@ -304,7 +304,7 @@ background-clip: text;}
 .carrousel-item {
   position: relative;
   width: 12%;
-  max-height: 500px;
+  max-height: 10%;
   background-color: #999CFF;
   aspect-ratio: 0.707;
   flex-shrink: 0;
