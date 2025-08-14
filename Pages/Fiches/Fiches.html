@@ -6,7 +6,7 @@
   <title>Fiches</title>
   <link rel="icon" href="../../Image/favicon.ico" type="image/x-icon">
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
-<script src="script.js" defer></script>
+<script src="Page.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -19,8 +19,8 @@
         <div class="menu-item" style="background-color:#483648">Méthodes</div>
         <div class="menu-item" style="background-color:#474846">Lecture</div>
         <div class="menu-item" style="background-color:#3F484C">Auteurs</div>
-        <a href="../../Pages/Fiches/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
-        <a href="../../Pages/Pricing/Pricing.html"><div class="menu-item" style="background-color:#433E52">Formules</div></a>
+        <a href="../Pages/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
+        <div class="menu-item" style="background-color:#433E52">Ressources</div>
         <div class="help-button">?</div>
     </div>
 
@@ -34,43 +34,101 @@
       <li><a href="#produits">Produits</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav></div><main>
-    <h1>Formules</h1>
-    <div class="pricing-switch">
-      <span>Pack</span>
-      <label class="switch">
-        <input type="checkbox" id="togglePricing">
-        <span class="slider"></span>
-      </label>
-      <span>Unité</span>
-    </div>
-    
-    <div class="pricing-container" id="pricingContainer">
-        <div class="pricing-card" id="cardBasic">
-            <h2>Basic</h2>
-            <span class="price">3.99€<span>
-            <p>4 oeuvres au choix pour préparer la dissertation <br> les méthodes utiles aux commentaires<br></p>
-            <div class= "Bouton">Choisir</div>
-            <img id="imgBasic" src="../../Image/Image gauche.webp" alt="Image Gauche">
-        </div>
-    
-        <div class="pricing-card" id="cardPremium">
-            <h2 class="Titre">Premium</h2>
-            <span class="price">7.99</span>
-            <p>Tout pour réussir l'écrit de Français :<br>Commentaire<br>Dissertation</p>
-            <div class= "Bouton">Choisir</div>
-            <img id="imgPremium" src="../../Image/Image centre.webp" alt="Image Centre">
-        </div>
-    
-        <div class="pricing-card" id="cardUltime">
-            <h2>Ultime</h2>
-            <span class="price">9.99€</span>
-            <p>Le meilleur de nos services<br>Tout le nécéssaire pour l'Oral et l'Écrit</p>
-            <div class= "Bouton">Choisir</div>
-            <img id="imgUltime" src="../../Image/Image droite.webp" alt="Image Droite">
-        </div>
-    </div>
-    
+  </nav></div>
+ <main class="carrousel-section">
+  <h1 class="section-title">Textes</h1>
+  <button class="cta-button" id="buy-button">Acheter Maintenant</button>
+  <div class="carrousel">
+  <div class="carrousel-track">
+    <a href="page1.html" class="carrousel-item">
+      <img src="../../Image/Fiche3.webp" alt="Titre 1">
+    </a>
+    <a href="page2.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Titre 2">
+    </a>
+    <a href="page3.html" class="carrousel-item">
+      <img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Une dénonciation de notre rapport au monde.webp" alt="Titre 3">
+    </a>
+    <a href="page4.html" class="carrousel-item">
+      <img src="../../Fichesweb\Mes fôrets - Le feu et les vents - Le feu un élément ravageur _ force de vie et de renouveau.webp" alt="Titre 4">
+    </a>
+    <a href="page5.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Titre 5">
+    </a>
+    <a href="page6.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - La rencontre entre Manon et Des Grieux - Introduction et Conclusion.webp" alt="Titre 6">
+    </a>
+    <a href="page7.html" class="carrousel-item">
+      <img src="../../Fichesweb\La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="Titre 7">
+    </a>
+    <a href="page8.html" class="carrousel-item">
+      <img src="../../Fichesweb\Cyrano de Bergerac - Scène 7 de l’acte III.webp" alt="Titre 8">
+    </a>
+    <a href="page9.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - La rencontre entre Manon et Des Grieux -  Le Récit d'un coup de foudre - Le Portrait ambigu de Manon(1).webp" alt="Titre 9">
+    </a>
+    <a href="page10.html" class="carrousel-item">
+      <img src="../../Fichesweb\Olympe de Gouges - Le Postambule -  Les armes face à la résistance masculine.webp" alt="Titre 10">
+    </a>
+  </div>
 </div>
+
+<div class="carrousel carrouseldeux">
+  <div class="carrousel-track">
+    <a href="page1.html" class="carrousel-item">
+      <img src="../../Fichesweb\Mes fôrets - Il fait un temps d’insectes affairés -La Forêt, une source d’inspiration et un défit poétique.webp" alt="Titre 1">
+    </a>
+    <a href="page2.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Titre 2">
+    </a>
+    <a href="page3.html" class="carrousel-item">
+      <img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Une dénonciation de notre rapport au monde.webp" alt="Titre 3">
+    </a>
+    <a href="page4.html" class="carrousel-item">
+      <img src="../../Fichesweb\Mes fôrets - Le feu et les vents - Le feu un élément ravageur _ force de vie et de renouveau.webp" alt="Titre 4">
+    </a>
+    <a href="page5.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Titre 5">
+    </a>
+    <a href="page6.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - La rencontre entre Manon et Des Grieux - Introduction et Conclusion.webp" alt="Titre 6">
+    </a>
+    <a href="page7.html" class="carrousel-item">
+      <img src="../../Fichesweb\La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="Titre 7">
+    </a>
+    <a href="page8.html" class="carrousel-item">
+      <img src="../../Fichesweb\Cyrano de Bergerac - Scène 7 de l’acte III.webp" alt="Titre 8">
+    </a>
+    <a href="page9.html" class="carrousel-item">
+      <img src="../../Fichesweb\Manon Lescaut - La rencontre entre Manon et Des Grieux -  Le Récit d'un coup de foudre - Le Portrait ambigu de Manon(1).webp" alt="Titre 9">
+    </a>
+    <a href="page10.html" class="carrousel-item">
+      <img src="../../Fichesweb\Olympe de Gouges - Le Postambule -  Les armes face à la résistance masculine.webp" alt="Titre 10">
+    </a>
+  </div>
+</div>
+<div class="Partie">
+  <div class="Piece">
+     <model-viewer
+  src="../../models/1_euro_coin_1999_france_-_simple_scan (1).glb"
+  auto-rotate
+  rotation="0 90 0"
+  rotation-per-second="60deg"
+  camera-controls
+  auto-rotate-delay="100"
+  style="height: 100%;width: 100%;box-shadow: white;filter: brightness(0.6)">
+</model-viewer>
+  </div>
+  <div class="Piece" style="margin-left:-5%">
+    <div class="text-lines">
+      <div class="line" style="font-size: 450px;">1€</div>
+      <div class="line" style="font-size: 120px;margin-top:-10%;">C'est le prix</div>
+      <div class="line" style="font-size: 120px;margin-top: -2%;">D'une méthode</div>
+      <div class="line" style="font-size: 160px;margin-top: -2%;">D'une réussite</div>
+    </div>
+  </div>
+</div>
+<button class="cta-button" id="buy-button" style="margin-bottom:10vh;transform: scale(2);">Acheter Maintenant</button>
 </main>
 </body>
+</html>
