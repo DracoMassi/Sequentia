@@ -1,0 +1,285 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* -------------------------
+       VARIABLES & ÉLÉMENTS DOM
+    ------------------------- */
+    const menuItems   = document.querySelectorAll('.menu-item');
+    const helpButton  = document.querySelector('.help-button');
+    const helpBox     = document.querySelector('.help-box');
+    const logo        = document.getElementById('logo');
+    const buyButton   = document.getElementById("buy-button");
+    const gridItems   = document.querySelectorAll('#gradient-grid .circle-item');
+    const menu        = document.querySelector(".menu");
+    const toggleBtn   = document.getElementById("footer-toggle-btn");
+    const closeBtn    = document.getElementById("footer-close-btn");
+    const footerPanel = document.getElementById("footer-panel");
+  
+    let helpTimeout;
+    const easterEggSequence = "SEQUENTIA";
+    let keyBuffer = "";
+  
+    const gradientColors = [
+      "#FFA1A1", "#FFE4BE", "#CCFF9F", 
+      "#B7DACC", "#7893FF", "#C269F3", "#FF64D1"
+    ];
+  
+    /* -------------------------
+       FONCTIONS UTILITAIRES
+    ------------------------- */
+    const hexToRgb = (hex) => {
+      const bigint = parseInt(hex.slice(1), 16);
+      return [
+        (bigint >> 16) & 255,
+        (bigint >> 8) & 255,
+        bigint & 255
+      ];
+    };
+  
+    const interpolateColor = (color1, color2, factor) => {
+      return color1.map((c, i) => Math.round(c + factor * (color2[i] - c)));
+    };
+  
+    /* -------------------------
+       HELP BOX
+    ------------------------- */
+    if (helpButton && helpBox) {
+      helpButton.addEventListener('click', () => {
+        const anyExpanded = [...menuItems].some(item => item.classList.contains('expanded'));
+        if (anyExpanded) return;
+  
+        const isVisible = helpBox.classList.toggle('visible');
+  
+        if (isVisible) {
+          clearTimeout(helpTimeout);
+          helpTimeout = setTimeout(() => {
+            helpBox.classList.remove('visible');
+          }, 4000);
+        }
+      });
+    }
+  
+    /* -------------------------
+       MENU ITEMS HOVER
+    ------------------------- */
+    menuItems.forEach(item => {
+      let timeout;
+  
+      item.addEventListener('mouseenter', () => {
+        clearTimeout(timeout);
+        item.classList.add('expanded');
+  
+        if (helpBox?.classList.contains('visible')) {
+          helpBox.classList.remove('visible');
+          clearTimeout(helpTimeout);
+        }
+      });
+  
+      item.addEventListener('mouseleave', () => {
+        timeout = setTimeout(() => {
+          item.classList.remove('expanded');
+        }, 400);
+      });
+    });
+  
+    /* -------------------------
+       LOGO ACTIONS
+    ------------------------- */
+    if (logo) {
+      logo.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  
+      logo.addEventListener("mouseenter", () => {
+        document.body.classList.add("blur-active");
+      });
+      logo.addEventListener("mouseleave", () => {
+        document.body.classList.remove("blur-active");
+      });
+    }
+  
+    /* -------------------------
+       MENU BLUR EFFECT
+    ------------------------- */
+    if (menu) {
+      menu.addEventListener("mouseenter", () => {
+        document.body.classList.add("blur-active");
+      });
+      menu.addEventListener("mouseleave", () => {
+        document.body.classList.remove("blur-active");
+      });
+    }
+  
+    /* -------------------------
+       EASTER EGG (SEQUENTIA)
+    ------------------------- */
+    document.addEventListener("keydown", (e) => {
+      keyBuffer += e.key.toUpperCase();
+      if (keyBuffer.length > easterEggSequence.length) {
+        keyBuffer = keyBuffer.slice(-easterEggSequence.length);
+      }
+  
+      if (keyBuffer === easterEggSequence && buyButton) {
+        buyButton.classList.add("rainbow");
+        setTimeout(() => buyButton.classList.remove("rainbow"), 10000);
+      }
+    });
+  
+    /* -------------------------
+       GRADIENT GRID COLORS
+    ------------------------- */
+    gridItems.forEach((circle, index) => {
+      const circleBg = circle.querySelector('.circle-bg');
+      if (!circleBg) return;
+  
+      const row = Math.floor(index / 4);
+      const col = index % 4;
+      const progress = (row + col) / 6;
+      const scaled = progress * (gradientColors.length - 1);
+      const i = Math.floor(scaled);
+      const localFactor = scaled - i;
+  
+      const color1 = hexToRgb(gradientColors[i]);
+      const color2 = hexToRgb(gradientColors[Math.min(i + 1, gradientColors.length - 1)]);
+      const interpolated = interpolateColor(color1, color2, localFactor);
+  
+      circleBg.style.backgroundColor = `rgb(${interpolated.join(",")})`;
+    });
+  
+    /* -------------------------
+       FOOTER TOGGLE
+    ------------------------- */
+    if (toggleBtn && closeBtn && footerPanel) {
+      toggleBtn.addEventListener("click", () => {
+        footerPanel.classList.add("open");
+        toggleBtn.classList.add("hidden");
+      });
+  
+      closeBtn.addEventListener("click", () => {
+        footerPanel.classList.remove("open");
+        toggleBtn.classList.remove("hidden");
+      });
+    }
+  
+    /* -------------------------
+       ANTI-ZOOM CLAVIER
+    ------------------------- */
+    document.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) &&
+          ['+', '-', '=', '0'].includes(event.key)) {
+        event.preventDefault();
+      }
+    });
+  
+    /* -------------------------
+       CARROUSELS AVEC SENS INVERSE POUR carrouseldeux
+    ------------------------- */
+    document.querySelectorAll('.carrousel').forEach((carrousel) => {
+      const track = carrousel.querySelector('.carrousel-track');
+      const originalItems = Array.from(track.children);
+  
+      // Clone items pour boucle infinie
+      originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+  
+      const items = Array.from(track.children);
+      let scrollAmount = 0;
+      const baseStep = 0.5; // pixels par frame
+  
+      // Sens du scroll selon la classe carrouseldeux
+      const autoStep = carrousel.classList.contains('carrouseldeux') ? -baseStep : baseStep;
+  
+      function updateScale() {
+        const carrouselRect = carrousel.getBoundingClientRect();
+        const centerX = carrouselRect.left + carrouselRect.width / 2;
+  
+        let closestItem = null;
+        let closestDistance = Infinity;
+  
+        items.forEach(item => {
+          const rect = item.getBoundingClientRect();
+          const itemCenterX = rect.left + rect.width / 2;
+          const distance = Math.abs(itemCenterX - centerX);
+  
+          item.style.transition = "transform 0.3s";
+          item.style.transform = "scale(1)";
+  
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestItem = item;
+          }
+        });
+  
+        if (closestItem) {
+          closestItem.style.transform = "scale(1.1)";
+        }
+      }
+  
+      function autoScroll() {
+        scrollAmount += autoStep;
+  
+        const halfScroll = track.scrollWidth / 2;
+  
+        if (scrollAmount >= halfScroll) {
+          scrollAmount -= halfScroll;
+        } else if (scrollAmount < 0) {
+          scrollAmount += halfScroll;
+        }
+  
+        track.scrollLeft = scrollAmount;
+  
+        updateScale();
+        requestAnimationFrame(autoScroll);
+      }
+  
+      autoScroll();
+  
+    });
+  
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("togglePricing");
+    const prices = document.querySelectorAll(".pricing-card .price");
+    const Titre = document.querySelectorAll(".pricing-card .Titre"); 
+    const pricingContainer = document.querySelector(".pricing-container");
+    const cards = document.querySelectorAll(".pricing-card");
+    const premiumCard = cards[1]; // carte du milieu
+    const premiumImg = premiumCard.querySelector("img");
+
+    toggle.addEventListener("change", function () {
+        if (this.checked) {
+            // --- Mode annuel ---
+            prices[1].textContent = "1€";
+            Titre[0].textContent = "La Fiche Seule";
+            pricingContainer.classList.add("annual-mode");
+            premiumCard.classList.add("expanded-card");
+            premiumImg.src = "../../Image/Image totale.webp";
+
+            cards[0].classList.remove("show-card");
+            cards[0].classList.add("hidden-card");
+
+            cards[2].classList.remove("show-card");
+            cards[2].classList.add("hidden-card");
+
+        } else {
+            // --- Mode mensuel ---
+            Titre[0].textContent = "Premium";
+            prices[1].textContent = "7.99€";
+            // Réinitialiser les cartes
+            premiumCard.classList.remove("expanded-card");
+            premiumImg.src = "../../Image/Image centre.webp";
+
+            // Attendre la réduction avant de réafficher
+            setTimeout(() => {
+                cards[0].classList.remove("hidden-card");
+                cards[0].classList.add("show-card");
+
+                cards[2].classList.remove("hidden-card");
+                cards[2].classList.add("show-card");
+
+                pricingContainer.classList.remove("annual-mode");
+            }, 400);
+        }
+    });
+});
