@@ -6,7 +6,7 @@
   <title>Fiches</title>
   <link rel="icon" href="../../Image/favicon.ico" type="image/x-icon">
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
-<script src="Page.js" defer></script>
+<script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -32,34 +32,83 @@
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#produits">Produits</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav></div>
       <main>
-<h2>Recherche</h2>
-<input type="text" id="searchInput" placeholder="Tapez pour filtrer...">
+        <h1>Achats</h1>
+        <div class="Carte bleu">
+          <h2>Analyses Linéaires</h2>
+<input type="text" id="searchInput" placeholder="Tapez pour filtrer..." onkeyup="filterItems()">
+          <p>Retrouvez ici les analyses linéaires de vos œuvres préférées, avec des plans détaillés et des textes surlignés pour faciliter votre compréhension.</p>
+<div id="itemList">
+  <div class="item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III - Plan et Texte surligné.webp" alt="Cyrano de Bergerac - Scène 7 de l’acte III - théâtre"></div>
+  <div class="item"><img src="../../Fichesweb/De l'Égalité des deux sexes - L'importance de se défaire des préjugés- Plan et Texte surligné.webp" alt="De l'Égalité des deux sexes - L'importance de se défaire des préjugés - littérature d'idée"></div>
+  <div class="item"><img src="../../Fichesweb/Destination _ arbre -  Plan et Texte surligné.webp" alt="Destination _ arbre - poésie"></div>
+  <div class="item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="La Colonie - Scène 13 - théâtre"></div>
+  <div class="item"><img src="../../Fichesweb/Manon Lescaut - La Mort de Manon - Plan et Texte surligné.webp" alt="Manon Lescaut - La Mort de Manon - roman"></div>
+  <div class="item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Manon Lescaut - La rencontre entre Manon et Des Grieux - roman"></div>
+  <div class="item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Manon Lescaut - L’Evasion de Saint-Lazare - roman"></div>
+  <div class="item"><img src="../../Fichesweb/Mes forêts - Poème liminaire - Plan et Texte surligné.webp" alt="Mes forêts - Poème liminaire - poésie"></div>
+  <div class="item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Plan et Texte surligné.webp" alt="Mes fôrets - Il fait un temps d’insectes affairés - poésie"></div>
+  <div class="item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Plan et Texte surligné.webp" alt="Mes fôrets - Le feu et les vents - poésie"></div>
+  <div class="item"><img src="../../Fichesweb/Nana - Plan et Texte surligné.webp" alt="Nana - Plan - roman"></div>
+  <div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule - Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
+  <div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule- Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
+  <div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 3 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 3 de l’Acte III - théâtre"></div>
+  <div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 8 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 8 de l’Acte III - théâtre"></div>
+  <div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour -La scène 5 de l’Acte II - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 5 de l’Acte II - théâtre"></div>
+  
+</div>
+</div>
+<div class="Carte vert">
+  <h2>Analyses Linéaires</h2>
+<input type="text" id="searchInput" placeholder="Tapez pour filtrer..." onkeyup="filterItems()">
+  <p>Retrouvez ici les analyses linéaires de vos œuvres préférées, avec des plans détaillés et des textes surlignés pour faciliter votre compréhension.</p>
+<div id="itemList">
+<div class="item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III - Plan et Texte surligné.webp" alt="Cyrano de Bergerac - Scène 7 de l’acte III - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/De l'Égalité des deux sexes - L'importance de se défaire des préjugés- Plan et Texte surligné.webp" alt="De l'Égalité des deux sexes - L'importance de se défaire des préjugés - littérature d'idée"></div>
+<div class="item"><img src="../../Fichesweb/Destination _ arbre -  Plan et Texte surligné.webp" alt="Destination _ arbre - poésie"></div>
+<div class="item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="La Colonie - Scène 13 - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/Manon Lescaut - La Mort de Manon - Plan et Texte surligné.webp" alt="Manon Lescaut - La Mort de Manon - roman"></div>
+<div class="item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Manon Lescaut - La rencontre entre Manon et Des Grieux - roman"></div>
+<div class="item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Manon Lescaut - L’Evasion de Saint-Lazare - roman"></div>
+<div class="item"><img src="../../Fichesweb/Mes forêts - Poème liminaire - Plan et Texte surligné.webp" alt="Mes forêts - Poème liminaire - poésie"></div>
+<div class="item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Plan et Texte surligné.webp" alt="Mes fôrets - Il fait un temps d’insectes affairés - poésie"></div>
+<div class="item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Plan et Texte surligné.webp" alt="Mes fôrets - Le feu et les vents - poésie"></div>
+<div class="item"><img src="../../Fichesweb/Nana - Plan et Texte surligné.webp" alt="Nana - Plan - roman"></div>
+<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule - Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
+<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule- Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
+<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 3 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 3 de l’Acte III - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 8 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 8 de l’Acte III - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour -La scène 5 de l’Acte II - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 5 de l’Acte II - théâtre"></div>
 
-<ul id="itemList">
-  <li>Pomme</li>
-  <li>Banane</li>
-  <li>Orange</li>
-  <li>Fraise</li>
-  <li>Citron</li>
-</ul>
+</div>
+</div>
+<div class="Carte rouge">
+  <h2>Analyses Linéaires</h2>
+<input type="text" id="searchInput" placeholder="Tapez pour filtrer..." onkeyup="filterItems()">
+  <p>Retrouvez ici les analyses linéaires de vos œuvres préférées, avec des plans détaillés et des textes surlignés pour faciliter votre compréhension.</p>
+<div id="itemList">
+<div class="item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III - Plan et Texte surligné.webp" alt="Cyrano de Bergerac - Scène 7 de l’acte III - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/De l'Égalité des deux sexes - L'importance de se défaire des préjugés- Plan et Texte surligné.webp" alt="De l'Égalité des deux sexes - L'importance de se défaire des préjugés - littérature d'idée"></div>
+<div class="item"><img src="../../Fichesweb/Destination _ arbre -  Plan et Texte surligné.webp" alt="Destination _ arbre - poésie"></div>
+<div class="item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="La Colonie - Scène 13 - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/Manon Lescaut - La Mort de Manon - Plan et Texte surligné.webp" alt="Manon Lescaut - La Mort de Manon - roman"></div>
+<div class="item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Manon Lescaut - La rencontre entre Manon et Des Grieux - roman"></div>
+<div class="item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Manon Lescaut - L’Evasion de Saint-Lazare - roman"></div>
+<div class="item"><img src="../../Fichesweb/Mes forêts - Poème liminaire - Plan et Texte surligné.webp" alt="Mes forêts - Poème liminaire - poésie"></div>
+<div class="item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Plan et Texte surligné.webp" alt="Mes fôrets - Il fait un temps d’insectes affairés - poésie"></div>
+<div class="item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Plan et Texte surligné.webp" alt="Mes fôrets - Le feu et les vents - poésie"></div>
+<div class="item"><img src="../../Fichesweb/Nana - Plan et Texte surligné.webp" alt="Nana - Plan - roman"></div>
+<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule - Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
+<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule- Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
+<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 3 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 3 de l’Acte III - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 8 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 8 de l’Acte III - théâtre"></div>
+<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour -La scène 5 de l’Acte II - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 5 de l’Acte II - théâtre"></div>
+
+</div>
+</div>
 </main>
-<script>
-const input = document.getElementById("searchInput");
-const listItems = document.querySelectorAll("#itemList li");
-
-input.addEventListener("input", function() {
-    const filter = input.value.toLowerCase();
-    listItems.forEach(item => {
-        if(item.textContent.toLowerCase().includes(filter)){
-            item.style.display = "";
-        } else {
-            item.style.display = "none";
-        }
-    });
-});
-</script>
 </body>
 </html>
