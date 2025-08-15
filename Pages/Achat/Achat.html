@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
+  <title>Fiches</title>
+  <link rel="icon" href="../../Image/favicon.ico" type="image/x-icon">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
+<script src="Page.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="fixed-container">
+          <a href="../../index.html"><div class="logo-bar" alt="Logo Sequentia" id="logo"></div></a>
+          <div class="menu">
+            <div class="menu-item" style="background-color:#483648">Méthodes</div>
+            <div class="menu-item" style="background-color:#474846">Lecture</div>
+            <a href="../../Pages/Achat/Achat.html"><div class="menu-item" style="background-color:#3F484C">Achats</div></a>
+            <a href="../../Pages/Fiches/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
+            <a href="../../Pages/Pricing/Pricing.html"><div class="menu-item" style="background-color:#433E52">Formules</div></a>
+            <div class="help-button">?</div>
+        </div>
+    
+        <div class="help-box">Ceci est un message d’aide ou d’explication.</div>
+      </div>
+      </header>
+      <div class="Menugrand">
+        <nav class="Menugrand">
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav></div>
+      <main>
+<h2>Recherche</h2>
+<input type="text" id="searchInput" placeholder="Tapez pour filtrer...">
+
+<ul id="itemList">
+  <li>Pomme</li>
+  <li>Banane</li>
+  <li>Orange</li>
+  <li>Fraise</li>
+  <li>Citron</li>
+</ul>
+</main>
+<script>
+const input = document.getElementById("searchInput");
+const listItems = document.querySelectorAll("#itemList li");
+
+input.addEventListener("input", function() {
+    const filter = input.value.toLowerCase();
+    listItems.forEach(item => {
+        if(item.textContent.toLowerCase().includes(filter)){
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
+</script>
+</body>
+</html>

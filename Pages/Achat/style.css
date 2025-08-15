@@ -1,0 +1,158 @@
+/* --- Polices --- */
+@font-face {
+    font-family: 'Melbourne';
+    src: url("../../fonts/melbournebold.ttf") format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Melbournethin';
+    src: url("../../fonts/melbourne.ttf") format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Andaluz';
+    src: url("../../fonts/Andaluz-Regular.otf") format('truetype');
+    font-weight: bold;
+}
+
+/* --- Global --- */
+body {
+    color: white;
+    background-color: #020411;
+    font-family: 'Melbourne', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    padding-top: 200px;
+}
+h1 {
+    margin: 10vh;
+    font-size: 90px;
+    font-family: 'Andaluz', serif;
+    color: white;
+    text-align: center;
+}
+
+/* --- Menu principal --- */
+.Menugrand { display: none; }
+
+/* --- Conteneur fixe --- */
+.fixed-container {
+    position: fixed;
+    top: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1940px;
+    max-height: 73px;
+    padding: 0 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    z-index: 1000;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+.fixed-container .logo-bar,
+.fixed-container .menu {
+    pointer-events: auto;
+}
+
+/* Logo */
+.logo-bar {
+    height: 73px;
+    width: 240px;
+    background-image: url(../../Image/Sequentia\ Logo\ Grand.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 23px;
+    padding: 14px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 11px;
+}
+.menu a { text-decoration: none; }
+.menu-item {
+    color: white;
+    font-size: 25px;
+    width: 166px;
+    min-height: 53px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    height: 53px;
+}
+.menu-item.expanded { height: 159px; }
+
+/* --- Bouton aide --- */
+.help-button {
+    color: white;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+.help-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Boîte d’aide */
+.help-box {
+    position: absolute;
+    top: 125%;
+    right: 55px;
+    width: 360px;
+    height: 160px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 11px;
+    padding: 16px;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 998;
+}
+.help-box.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Bouton CTA --- */
+.cta-button {
+    width: 645px;
+    height: 96px;
+    margin: 0 auto;
+    border-radius: 90px;
+    border: 5px solid white;
+    box-shadow: 0px 4px 4px rgba(160, 171, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    background: transparent;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+.cta-button:hover {
+    color: #020411;
+    font-size: 30px;
+    background-color: white;
+}
