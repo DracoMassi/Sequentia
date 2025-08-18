@@ -460,8 +460,8 @@ body.blur-active .blur-wrapper {
   font-family: "Andaluz";
   font-size: 120px;
 }
-.Menugrand {display:none;
-}
+.Menugrand {display:none;}
+
 .stayonbusiness {
   position:relative;
   margin-top:500px;
@@ -669,40 +669,37 @@ display: flex;
     color: none;
     height: 70%;
     aspect-ratio: 1;
-    padding:10px;
+    padding:5px;
   }
-  .menu-item, .help-button{display:none;}
+  .menu-item, .help-button, .help-box {display:none;}
   .GrandLogo {
     margin-top:-10%;
     transform: scale(0.6);
   }
   
   .Menugrand {
-  display: none;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.5s ease;
   background-color: rgba(2, 4, 17, 0.95);
   color: white;
-
-  
-
-  transform: translateX(100%);
-  transition: all 0.7s ease;
   z-index: 9999;
 }
 
 
 /* Quand .clicked est activé → visible */
 .Menugrand.clicked {
+  opacity: 1;
   position:fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: translateX(0);
+  transition: all 0.5s ease;
   width: 100vw;
   height: 100vh;
 }

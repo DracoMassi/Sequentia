@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buyButton   = document.getElementById("buy-button");
   const gridItems   = document.querySelectorAll('#gradient-grid .circle-item');
   const menu        = document.querySelector(".menu");
+  const menuGrand   = document.querySelector('.Menugrand');
   const toggleBtn   = document.getElementById("footer-toggle-btn");
   const closeBtn    = document.getElementById("footer-close-btn");
   const footerPanel = document.getElementById("footer-panel");
@@ -97,15 +98,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* -------------------------
-     MENU BLUR EFFECT
-  ------------------------- */
-  if (menu) {
+/* -------------------------
+   MENU BLUR EFFECT
+------------------------- */
+if (menu) {
+  const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+  if (!isTouchDevice) {
     menu.addEventListener("mouseenter", () => {
       document.body.classList.add("blur-active");
     });
     menu.addEventListener("mouseleave", () => {
       document.body.classList.remove("blur-active");
+    });
+  }
+}
+
+
+  /* -------------------------
+     MENU GRAND CLICK (BLOQUE SCROLL)
+  ------------------------- */
+  if (menu && menuGrand) {
+    menu.addEventListener('click', () => {
+      menuGrand.classList.toggle('clicked');
+
+      // Bloquer ou réactiver le scroll en fonction de l'état du menu
+      document.body.style.overflow = menuGrand.classList.contains('clicked') ? 'hidden' : '';
     });
   }
 
@@ -171,11 +189,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-const menu = document.querySelector('.menu');
-const menuGrand = document.querySelector('.Menugrand');
-
-if (menu && menuGrand) {
-  menu.addEventListener('click', () => {
-    menuGrand.classList.toggle('clicked');
-  });
-}
