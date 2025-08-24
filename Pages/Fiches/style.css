@@ -566,8 +566,8 @@ body.blur-active .blur-wrapper {
     .big-price {
       font-size: 180px;
     }
-    
-    .small { 
+    model-viewer {display: none;}
+       .small { 
       font-size: 40px;
       margin-top: -0.6em;
     }
