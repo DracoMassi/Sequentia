@@ -61,7 +61,7 @@ h1 {
 .logo-bar {
     height: 73px;
     width: 240px;
-    background-image: url(../../Image/Sequentia\ Logo\ Grand.webp);
+    background-image: url(../../Image/Grand.webp);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -155,7 +155,13 @@ h1 {
     font-size: 30px;
     background-color: white;
 }
-
+.blur-wrapper {
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  
+  body.blur-active .blur-wrapper {
+    filter: blur(3px) brightness(0.7);
+  }
 /* --- Cartes de prix --- */
 .pricing-container {
     display: flex;

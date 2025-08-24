@@ -64,7 +64,7 @@ h1 {
 .logo-bar {
     height: 73px;
     width: 240px;
-    background-image: url(../../Image/Sequentia\ Logo\ Grand.webp);
+    background-image: url(../../Image/Grand.webp);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -135,7 +135,13 @@ h1 {
     opacity: 1;
     pointer-events: auto;
 }
-
+.blur-wrapper {
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  
+  body.blur-active .blur-wrapper {
+    filter: blur(3px) brightness(0.7);
+  }
 /* --- Bouton CTA --- */
 .cta-button {
     width: 645px;

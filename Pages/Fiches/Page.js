@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buyButton   = document.getElementById("buy-button");
   const gridItems   = document.querySelectorAll('#gradient-grid .circle-item');
   const menu        = document.querySelector(".menu");
+  const menuGrand   = document.querySelector('.Menugrand'); // ajouté
   const toggleBtn   = document.getElementById("footer-toggle-btn");
   const closeBtn    = document.getElementById("footer-close-btn");
   const footerPanel = document.getElementById("footer-panel");
@@ -28,11 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ------------------------- */
   const hexToRgb = (hex) => {
     const bigint = parseInt(hex.slice(1), 16);
-    return [
-      (bigint >> 16) & 255,
-      (bigint >> 8) & 255,
-      bigint & 255
-    ];
+    return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
   };
 
   const interpolateColor = (color1, color2, factor) => {
@@ -51,9 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isVisible) {
         clearTimeout(helpTimeout);
-        helpTimeout = setTimeout(() => {
-          helpBox.classList.remove('visible');
-        }, 4000);
+        helpTimeout = setTimeout(() => helpBox.classList.remove('visible'), 4000);
       }
     });
   }
@@ -100,12 +95,23 @@ document.addEventListener("DOMContentLoaded", () => {
   /* -------------------------
      MENU BLUR EFFECT
   ------------------------- */
-  if (menu) {
+  if (menu && !window.matchMedia("(pointer: coarse)").matches) {
     menu.addEventListener("mouseenter", () => {
       document.body.classList.add("blur-active");
     });
     menu.addEventListener("mouseleave", () => {
       document.body.classList.remove("blur-active");
+    });
+  }
+
+  /* -------------------------
+     MENU GRAND (bloquer scroll)
+  ------------------------- */
+  if (menu && menuGrand) {
+    menu.addEventListener('click', () => {
+      menuGrand.classList.toggle('clicked');
+      document.documentElement.style.overflow =
+        menuGrand.classList.contains('clicked') ? 'hidden' : '';
     });
   }
 

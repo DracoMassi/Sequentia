@@ -16,11 +16,11 @@
 }
 
 body {
+  padding:1vw 1vh;
+  overflow-x: hidden;
+  display: block;
   font-family: 'Melbourne', sans-serif;
   background-color: #020411;
-  min-height: 100vh;
-  margin: 0;
-  overflow-x: hidden;
 }
 /* Conteneur fixe : aligne logo et menu */
 .fixed-container {
@@ -29,7 +29,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 1940px;
+  max-width: 2000px;
   max-height:73px;
   padding: 0 60px;
   display: flex;
@@ -127,12 +127,6 @@ body {
   pointer-events: auto;
 }
 
-/* Logo grand (facultatif) */
-.GrandLogo {
-  margin-top: 150px;
-  box-sizing: content-box;
-}
-
 /* Call-to-action button */
 .cta-button {
   width: 645px;
@@ -161,31 +155,31 @@ body {
 
 /* Contenu principal */
 main {
-  display: contents;
   justify-content: center;
   margin-top: 200px;
   text-align: center;
   justify-content: center;
-  padding:0px;
+  width: 100vw;
 }
 .image-box {
   display: flex;
-  margin: 100px auto;
-  position: relative;
+  margin-top: 5%;
+  justify-self: center;
   width: fit-content;
 }
 
 .img-rect {
   width: 417px;
   height: 590px;
-  overflow: hidden;
+  overflow: visible;
   transition: transform 1s ease;
 }
 
 .img-rect img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  overflow: hidden;
   box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.4); /* <-- Ombre ici */
 }
 
@@ -231,47 +225,11 @@ main {
   display: flex;
   justify-content: space-between; /* espace entre les deux colonnes */
   align-items: center;           /* centre verticalement */
-  gap: 5vw;
-  width: 100%;
+  gap: 10%; /* espace flexible entre les colonnes */
+  width: 100vw;
+  max-width: 2000px;
   height:100%;
 }
-
-.info-left {
-  position: relative; /* ajuste selon ton besoin */
-}
-
-.violet-bg {
-  margin-left: 0px;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.info-text {
-  color: white;
-  font-family: 'Melbourne', sans-serif;
-  width: 100vw;
-}
-
-.info-text h2 {
-  position:relative;
-  top:-50px;
-  font-size: 160px;
-  font-weight: bold;
-  margin: 0 0 10px;
-  margin-left: 13%;
-  margin-bottom:-100px;
-}
-
-.info-text p {
-  position:relative;
-  font-family: "Melbournethin";
-  text-align: left;
-  font-size: 35px;
-  line-height: 1.2;
-  width: 20vw;
-}
-
 .roman-image {
   justify-content: center;
   width: auto; /* adapte selon le rendu souhaité */
@@ -283,29 +241,10 @@ main {
 transform: scale(1.05);
 }
 
-.conteneur-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 120px;
-  margin-top: 100px;
-  padding: 0 60px;
-  box-sizing: border-box;
-}
-.gauche-section {
-display: flex;
-flex-direction: column;
-position:relative;
-width: fit-content;
-margin: 20px 20px;
-}
-
 .title-textes {
-  margin-left: 120px;
   margin-top: 10px;
   margin-bottom: -40px;
   font-size: 160px;
-  font-weight: 900;
   font-family: 'Melbourne', sans-serif;
 }
 .circle-top {
@@ -330,7 +269,7 @@ margin: 20px 20px;
   grid-template-columns: repeat(4, 100px);
   gap: 100px;
   margin-bottom: 100px;
-  margin-left: 50px;
+  margin-left: 1vw;
   background-image: url(Image/Grille.svg);
   box-sizing: content-box;
 }
@@ -367,9 +306,6 @@ margin: 20px 20px;
   filter: blur(10px);
   z-index: 0;
 }
-.last-section h3 br{
-  display: none;
-  }
 /* TEXTE NET au-dessus */
 .circle-item span {
   position: relative;
@@ -379,23 +315,15 @@ margin: 20px 20px;
   font-family: 'Melbourne', sans-serif;
   filter: none;
 }
-.textes-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 50px;
-  color: white;
-}
 .section {
   color:white;
-  margin: 100px auto;
+  margin: 15vh auto;
   position: relative;
   width: fit-content;
   display: flex;
   align-items: center;
   height: 100vh;
   max-height: 1000px;
-  background-size: contain;  /* affiche toute l’image */
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -405,25 +333,42 @@ margin: 20px 20px;
   position: relative;
   width: 100%;
   height: 100%;
+  background-size: cover; /* adapte la taille de l'image */
+}
+.Forme-Texte {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  width:80%;
+}
+.Forme-Texte h2 {
+  text-align: right;
+  width: 90%;
+  position: relative;
+  color:#ffffff;
+  font-family: 'Melbourne', sans-serif;
+  font-size: 160px;
+  font-weight: bold;
+  margin: 0;
+}
+.Forme-Texte p {
+  font-family: 'Melbournethin', sans-serif;
+  font-size: clamp(20px,2vw,40px);
+  line-height: 1.2;
+  width: 90%;
 }
 .droite {max-width: 1260px; background: url(Image/Forme2.svg) no-repeat left}
+.droite .Forme-Texte {  position: absolute;
+  top: 50%;       /* le bloc commence au milieu */
+  right: 0;       /* aligné à droite */
+  transform: translateY(-50%); /* centrage vertical */}
+
 .gauche {max-width: 1260px; background: url(Image/Forme1.svg) no-repeat right}
-.Forme h2 {
-  position: relative;
-  top:10%;
-  left: 20%;
-  font-size: 140px;
-  font-family: 'Melbourne', sans-serif;
-  text-align: center;
-}
-.Forme p {
-  left:10%;
-  width: 80%;
-  position: relative;
-  font-size: 40px;
-  font-family: 'Melbourne', sans-serif;
-  text-align: center;
-}
+.gauche .Forme-Texte {  position: absolute;
+  top: 18%;       /* le bloc commence au milieu */
+  right: 1%;       /* aligné à droite */
+text-align: left;}
+
 .blur-wrapper {
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
@@ -431,34 +376,7 @@ margin: 20px 20px;
 body.blur-active .blur-wrapper {
   filter: blur(3px) brightness(0.7);
 }
-
-/* Section principale */
-.last-section {
-  position: relative;
-  background-color: #7893FF;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url("Image/FondTiktok.svg") no-repeat center top;
-  z-index: 1;
-}
-.last-section h3{
-  font-family: "Melbourne";
-  font-size: 80px;
-  margin-top: 300px;
-}
-.last-section h4{
-  margin-top: -100px;
-  font-family: "Andaluz";
-  font-size: 120px;
-}
 .Menugrand {display:none;}
-
-.stayonbusiness {
-  position:relative;
-  margin-top:500px;
-}
 
 .site-footer {
   position: fixed;
@@ -560,20 +478,218 @@ body.blur-active .blur-wrapper {
 .video-gallery {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 1%;
   flex-wrap: wrap;
-  padding: 40px 0;
 }
 
 .video-thumb {
-  width: 300px;
-  height: auto;
+  color: white;
+  width: 25vw;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #7893FF;
   transition: all 0.3s ease;
-  cursor: pointer;
+}
+@media (pointer: coarse) and (max-width: 800px) {
+body{
+   display:flex;
+   width: 100%;
+   margin: 0px -10px 0px 0px;
+  }
+ main {
+  margin-top: 100px;
+ }
+   .logo-bar {
+     background-position: center center;
+     margin-top:0px ;
+     background: url("Image/S.webp") no-repeat center / contain;
+     height: 100%;
+     width: 5vw;
+   }
+   .fixed-container{
+   z-index:10000;
+   top: 40px;
+   min-width: 100px;
+   width: 100%;
+   max-width: 100vw;
+   justify-content:space-between;
+   gap:auto;
+   height: 50px;
+   }
+
+  .menu {
+   flex-direction: flex-start;
+   background-image: url(Image/MenuMobile.webp);
+   background-size: 25%;
+   background-position:center;
+   background-repeat:no-repeat;
+     background-color:rgba(27, 29, 40, 1) ;
+     color: none;
+     height: 70%;
+     aspect-ratio: 1;
+     padding:5px;
+   }
+   .menu-item, .help-button, .help-box {display:none;}
+   .GrandLogo {
+    justify-self: center  ;
+   }
+   .GrandLogo img {
+     width: 80%;
+     height: 80%;
+     object-fit: cover;
+   }
+   .Menugrand {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    /* état fermé */
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+  
+    background-color: rgba(2, 4, 17, 0.95);
+    color: white;
+    z-index: 9999;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+ 
+ 
+ /* Quand .clicked est activé → visible */
+ .Menugrand.clicked {
+   opacity: 1;
+   position:fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transform: translateX(0);
+   width: 100vw;
+   height: 100vh;
+ }
+ 
+ .Menugrand ul {
+   list-style: none;
+   padding: 0;
+   text-align: center;
+ }
+ 
+ .Menugrand ul li {
+   margin: 20px 0;
+ }
+ 
+ .Menugrand ul li a {
+   color: white;
+   font-size: 28px;
+   text-decoration: none;
+ }
+ 
+ .Menugrand ul li a:hover {
+   color: #FF64D1;
+ }
+   .cta-button {
+     width: 300px;
+     font-size: 20px;
+   }
+   .cta-button:hover {
+     font-size: 27px;;
+   }
+   .image-box {
+    box-shadow: none;
+    max-width: 100vw;
+    margin: 10vh;
+  }
+  .image-box:hover .rect1 {
+    transform: translateX(-75px) rotate(-10deg) translateY(10px);
+  }
+  .image-box:hover .rect2 {
+    transform: translateY(10px) rotate(0deg) scale(1.1);
+  }
+  .image-box:hover .rect3 {
+    transform: translateX(75px) rotate(8deg) translateY(10px) ;
+  }
+  .img-rect {
+    width: 209px;
+    height: 295px;
+    transition: transform 1s ease;
+  }
+  .img-rect img {
+    box-shadow: none; /* pas d'ombre */
+  }
+  .gauche-section,.roman-image {
+    display:none;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .section {
+    width: auto;
+    max-width: 100vw;
+    aspect-ratio: 1;
+    height: 100vh;
+    max-height: fit-content;
+  margin: 1%;}
+  .Forme-Texte h2 {
+    text-align: right;
+    width: 90%;
+    position: relative;
+    color:#ffffff;
+    font-family: 'Melbourne', sans-serif;
+    font-size: 120px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .Forme { 
+    color:white;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: 500px; /* adapte la taille de l'image */
+  }
+  .Forme-Texte p {
+    font-family: 'Melbournethin', sans-serif;
+    font-size: clamp(15px,2vw,30px);
+    line-height: 1.2;
+    width: 90%;
 }
 
-.video-thumb:hover {
-  transform: scale(1.05);
+    .droite {max-width: 100vw;}
+.droite .Forme-Texte {  
+  text-align: right;
+  position: absolute;
+  top: 50%;       /* le bloc commence au milieu */
+  right: 0;       /* aligné à droite */
+  transform: translateY(-50%); /* centrage vertical */}
+
+.gauche {max-width: 100vw;}
+.gauche .Forme-Texte {
+    position: absolute;
+  top: 18%;       /* le bloc commence au milieu */
+  right: 10%;       /* aligné à droite */
+text-align: left;}
+
+.gauche .Forme-Texte h2 {
+  left:15%;
+  font-size: 100px;
 }
+.gauche .Forme-Texte p {
+  width: 100%;
+}
+.droite .Forme-Texte h2 {
+  right:10%;
+  font-size: 100px;
+}
+  } 
+ @media (max-width: 1080px) {
+   .cta-button {color: rgb(255, 255, 255);}
+   }
+ 
+ @media (min-width: 1080px) {
+   .cta-button {color: #ffffff;}
+ }
+ 
+ 
