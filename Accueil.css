@@ -475,21 +475,146 @@ body.blur-active .blur-wrapper {
 .footer-toggle.hidden {
   display: none;
 }
-.video-gallery {
+
+.story-section {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 1%;
-  flex-wrap: wrap;
+  gap: 6vw;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: 'Melbourne', sans-serif;
 }
 
-.video-thumb {
-  color: white;
-  width: 25vw;
-  border-radius: 12px;
-  background-color: #7893FF;
+/* Mockup téléphone */
+.phone-mockup {
+  perspective: 1200px;
+}
+
+.phone-frame {
+  width: 400px;
+  height: 725px;
+  background: #000;
+  border-radius: 40px;
+  border: 8px solid #333;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: all 0.3s cubic-bezier(.19,1,.22,1), 
+              box-shadow 0.3s ease;
+  will-change: transform, box-shadow;
+  position: relative;
+}
+/* Reflet dynamique simulé */
+.phone-frame::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 60%);
+  opacity: 0;
   transition: all 0.3s ease;
 }
-@media (pointer: coarse) and (max-width: 800px) {
+.phone-frame.hovered::after {
+  opacity: 1;
+}
+
+.story-slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.story {
+  min-width: 100%;
+  height: 100%;
+}
+
+.story img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texte à droite */
+.story-text {
+  max-width: 1000px;
+}
+
+.story-text h2 {
+  font-size: 8em;
+  margin-bottom: 20px;
+}
+
+.story-text h2 span {
+  color: #8d86f1; /* couleur d'accent */
+}
+
+.story-text p {
+  font-size: 22px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* Conteneur des boutons sous le téléphone */
+.story-nav-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* espace sous le téléphone */
+}
+/* Boutons slider */
+.story-nav {
+  width: 60px;
+  height: 40px;
+  background: rgba(160, 171, 255, 1);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: rotateY(-10deg) rotateX(5deg); /* inclinaison téléphone */
+}
+
+/* Bouton gauche = arrondir coins extérieurs gauche */
+.story-nav.prev {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Bouton droit = arrondir coins extérieurs droit */
+.story-nav.next {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Survol = relief + zoom léger */
+.story-nav:hover {
+  transform: rotateY(-10deg) rotateX(5deg) scale(1.1);
+  box-shadow: 0 8px 20px rgba(160,171,255,0.6);
+}
+
+/* Flèches */
+.story-nav svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+
+
+@media (max-width: 800px) {
 body{
    display:flex;
    width: 100%;
@@ -551,7 +676,7 @@ body{
   
     background-color: rgba(2, 4, 17, 0.95);
     color: white;
-    z-index: 9999;
+    z-index: 999999;
   
     display: flex;
     justify-content: center;
@@ -584,7 +709,7 @@ body{
  }
  
  .Menugrand ul li a {
-   color: white;
+   color: #ffffff;
    font-size: 28px;
    text-decoration: none;
  }
@@ -657,7 +782,7 @@ body{
     width: 90%;
 }
 
-    .droite {max-width: 100vw;}
+    .droite {max-width: 100vw;background:none ;}
 .droite .Forme-Texte {  
   text-align: right;
   position: absolute;
@@ -665,7 +790,7 @@ body{
   right: 0;       /* aligné à droite */
   transform: translateY(-50%); /* centrage vertical */}
 
-.gauche {max-width: 100vw;}
+.gauche {max-width: 100vw;background:none ;}
 .gauche .Forme-Texte {
     position: absolute;
   top: 18%;       /* le bloc commence au milieu */
@@ -683,13 +808,25 @@ text-align: left;}
   right:10%;
   font-size: 100px;
 }
-  } 
- @media (max-width: 1080px) {
-   .cta-button {color: rgb(255, 255, 255);}
-   }
- 
- @media (min-width: 1080px) {
-   .cta-button {color: #ffffff;}
- }
- 
+.story-section {
+  flex-direction: column;
+  margin-top:1vh;
+}
+.phone-frame {
+  border-radius: 30px;
+  width: 150px;
+  height: 272px;
+  transform: rotateY(0deg) rotateX(0deg);
+  margin-top: 10vh;
+}
+.story-text h2 {
+  font-size: 60px;
+}
+.story-text p {
+  font-size: 16px;
+  padding: 0 10px;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+}
  

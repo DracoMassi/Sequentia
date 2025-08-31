@@ -15,164 +15,138 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn    = document.getElementById("footer-close-btn");
   const footerPanel = document.getElementById("footer-panel");
 
-  let helpTimeout;
-  const easterEggSequence = "SEQUENTIA";
-  let keyBuffer = "";
+  const slider      = document.getElementById('story-slider');
+  const prevBtn     = document.querySelector('.story-nav.prev');
+  const nextBtn     = document.querySelector('.story-nav.next');
+  const phoneFrame  = document.querySelector('.phone-frame');
 
-  const gradientColors = [
-    "#FFA1A1", "#FFE4BE", "#CCFF9F", 
-    "#B7DACC", "#7893FF", "#C269F3", "#FF64D1"
-  ];
+  let helpTimeout;
+  let keyBuffer = "";
+  const easterEggSequence = "SEQUENTIA";
+  const gradientColors = ["#FFA1A1","#FFE4BE","#CCFF9F","#B7DACC","#7893FF","#C269F3","#FF64D1"];
 
   /* -------------------------
      FONCTIONS UTILITAIRES
   ------------------------- */
-  const hexToRgb = (hex) => {
+  const hexToRgb = hex => {
     const bigint = parseInt(hex.slice(1), 16);
-    return [
-      (bigint >> 16) & 255,
-      (bigint >> 8) & 255,
-      bigint & 255
-    ];
+    return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
   };
 
-  const interpolateColor = (color1, color2, factor) => {
-    return color1.map((c, i) => Math.round(c + factor * (color2[i] - c)));
-  };
+  const interpolateColor = (c1, c2, factor) => c1.map((v,i) => Math.round(v + factor*(c2[i]-v)));
 
   /* -------------------------
      HELP BOX
   ------------------------- */
   if (helpButton && helpBox) {
     helpButton.addEventListener('click', () => {
-      const anyExpanded = [...menuItems].some(item => item.classList.contains('expanded'));
-      if (anyExpanded) return;
-
+      if ([...menuItems].some(item => item.classList.contains('expanded'))) return;
       const isVisible = helpBox.classList.toggle('visible');
-
       if (isVisible) {
         clearTimeout(helpTimeout);
-        helpTimeout = setTimeout(() => {
-          helpBox.classList.remove('visible');
-        }, 4000);
+        helpTimeout = setTimeout(() => helpBox.classList.remove('visible'), 4000);
       }
     });
   }
 
-  /* -------------------------
-     MENU ITEMS HOVER
-  ------------------------- */
   menuItems.forEach(item => {
     let timeout;
-
     item.addEventListener('mouseenter', () => {
       clearTimeout(timeout);
       item.classList.add('expanded');
-
-      if (helpBox?.classList.contains('visible')) {
+      if(helpBox?.classList.contains('visible')) {
         helpBox.classList.remove('visible');
         clearTimeout(helpTimeout);
       }
     });
-
     item.addEventListener('mouseleave', () => {
-      timeout = setTimeout(() => {
-        item.classList.remove('expanded');
-      }, 400);
+      timeout = setTimeout(() => item.classList.remove('expanded'), 400);
     });
   });
 
   /* -------------------------
-     LOGO ACTIONS
+     LOGO
   ------------------------- */
   if (logo) {
-    logo.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    logo.addEventListener("mouseenter", () => {
-      document.body.classList.add("blur-active");
-    });
-    logo.addEventListener("mouseleave", () => {
-      document.body.classList.remove("blur-active");
-    });
-  }
-
-/* -------------------------
-   MENU BLUR EFFECT
-------------------------- */
-if (menu) {
-  const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-
-  if (!isTouchDevice) {
-    menu.addEventListener("mouseenter", () => {
-      document.body.classList.add("blur-active");
-    });
-    menu.addEventListener("mouseleave", () => {
-      document.body.classList.remove("blur-active");
-    });
-  }
-}
-
-
-  /* -------------------------
-     MENU GRAND CLICK (BLOQUE SCROLL)
-  ------------------------- */
-  if (menu && menuGrand) {
-    menu.addEventListener('click', () => {
-      menuGrand.classList.toggle('clicked');
-
-      // Bloquer ou réactiver le scroll en fonction de l'état du menu
-      document.body.style.overflow = menuGrand.classList.contains('clicked') ? 'hidden' : '';
-    });
+    logo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    logo.addEventListener('mouseenter', () => document.body.classList.add("blur-active"));
+    logo.addEventListener('mouseleave', () => document.body.classList.remove("blur-active"));
   }
 
   /* -------------------------
-     EASTER EGG (SEQUENTIA)
+     MENU BLUR
   ------------------------- */
-  document.addEventListener("keydown", (e) => {
+  if(menu && !window.matchMedia("(pointer: coarse)").matches){
+    menu.addEventListener("mouseenter", ()=>document.body.classList.add("blur-active"));
+    menu.addEventListener("mouseleave", ()=>document.body.classList.remove("blur-active"));
+  }
+
+  /* -------------------------
+     MENU GRAND (scroll lock)
+  ------------------------- */
+  function disableScroll() {
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.dataset.scrollY = scrollY;
+  }
+
+  function enableScroll() {
+    const scrollY = document.body.dataset.scrollY || 0;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY, 10));
+  }
+
+  if(menu && menuGrand){
+    menu.addEventListener('click', ()=>{
+      const isOpen = menuGrand.classList.toggle('clicked');
+      if(isOpen){
+        disableScroll();
+      } else {
+        enableScroll();
+      }
+    });
+  }
+
+  /* -------------------------
+     EASTER EGG
+  ------------------------- */
+  document.addEventListener("keydown", e=>{
     keyBuffer += e.key.toUpperCase();
-    if (keyBuffer.length > easterEggSequence.length) {
-      keyBuffer = keyBuffer.slice(-easterEggSequence.length);
-    }
-
-    if (keyBuffer === easterEggSequence && buyButton) {
+    if(keyBuffer.length > easterEggSequence.length) keyBuffer = keyBuffer.slice(-easterEggSequence.length);
+    if(keyBuffer === easterEggSequence && buyButton){
       buyButton.classList.add("rainbow");
-      setTimeout(() => buyButton.classList.remove("rainbow"), 10000);
+      setTimeout(()=>buyButton.classList.remove("rainbow"), 10000);
     }
   });
 
   /* -------------------------
-     GRADIENT GRID COLORS
+     GRADIENT GRID
   ------------------------- */
-  gridItems.forEach((circle, index) => {
-    const circleBg = circle.querySelector('.circle-bg');
-    if (!circleBg) return;
-
-    const row = Math.floor(index / 4);
-    const col = index % 4;
-    const progress = (row + col) / 6;
-    const scaled = progress * (gradientColors.length - 1);
+  gridItems.forEach((circle,index)=>{
+    const bg = circle.querySelector('.circle-bg');
+    if(!bg) return;
+    const row = Math.floor(index/4);
+    const col = index%4;
+    const progress = (row+col)/6;
+    const scaled = progress*(gradientColors.length-1);
     const i = Math.floor(scaled);
-    const localFactor = scaled - i;
-
+    const localFactor = scaled-i;
     const color1 = hexToRgb(gradientColors[i]);
-    const color2 = hexToRgb(gradientColors[Math.min(i + 1, gradientColors.length - 1)]);
-    const interpolated = interpolateColor(color1, color2, localFactor);
-
-    circleBg.style.backgroundColor = `rgb(${interpolated.join(",")})`;
+    const color2 = hexToRgb(gradientColors[Math.min(i+1,gradientColors.length-1)]);
+    bg.style.backgroundColor = `rgb(${interpolateColor(color1,color2,localFactor).join(",")})`;
   });
 
   /* -------------------------
      FOOTER TOGGLE
   ------------------------- */
-  if (toggleBtn && closeBtn && footerPanel) {
-    toggleBtn.addEventListener("click", () => {
+  if(toggleBtn && closeBtn && footerPanel){
+    toggleBtn.addEventListener("click", ()=>{
       footerPanel.classList.add("open");
       toggleBtn.classList.add("hidden");
     });
-
-    closeBtn.addEventListener("click", () => {
+    closeBtn.addEventListener("click", ()=>{
       footerPanel.classList.remove("open");
       toggleBtn.classList.remove("hidden");
     });
@@ -181,11 +155,98 @@ if (menu) {
   /* -------------------------
      ANTI-ZOOM CLAVIER
   ------------------------- */
-  document.addEventListener("keydown", (event) => {
-    if ((event.ctrlKey || event.metaKey) &&
-        ['+', '-', '=', '0'].includes(event.key)) {
-      event.preventDefault();
-    }
+  document.addEventListener("keydown", e=>{
+    if((e.ctrlKey||e.metaKey) && ['+','-','=','0'].includes(e.key)) e.preventDefault();
   });
+
+  /* -------------------------
+     SLIDER INFINI + BOUTONS + AUTOPLAY
+  ------------------------- */
+  if(slider && prevBtn && nextBtn){
+    let stories = Array.from(slider.querySelectorAll(".story"));
+    if(stories.length === 0) return;
+
+    // Clones
+    const firstClone = stories[0].cloneNode(true);
+    const lastClone = stories[stories.length - 1].cloneNode(true);
+    firstClone.id = "first-clone";
+    lastClone.id = "last-clone";
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, stories[0]);
+
+    stories = Array.from(slider.querySelectorAll(".story"));
+    let currentIndex = 1;
+    let isTransitioning = false;
+
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    function updateSlider(index) {
+      if(isTransitioning) return;
+      isTransitioning = true;
+      slider.style.transition = 'transform 0.5s ease-in-out';
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    slider.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      const slides = document.querySelectorAll(".story");
+
+      if (slides[currentIndex].id === "last-clone") {
+        slider.style.transition = "none";
+        currentIndex = slides.length - 2;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      if (slides[currentIndex].id === "first-clone") {
+        slider.style.transition = "none";
+        currentIndex = 1;
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if(isTransitioning) return;
+      currentIndex--;
+      updateSlider(currentIndex);
+      resetAutoplay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if(isTransitioning) return;
+      currentIndex++;
+      updateSlider(currentIndex);
+      resetAutoplay();
+    });
+
+    document.addEventListener('keydown', e => {
+      if(e.key === "ArrowLeft") prevBtn.click();
+      if(e.key === "ArrowRight") nextBtn.click();
+    });
+
+    let autoplay = setInterval(()=>nextBtn.click(),5000);
+    function resetAutoplay(){
+      clearInterval(autoplay);
+      autoplay = setInterval(()=>nextBtn.click(),5000);
+    }
+  }
+
+  /* -------------------------
+     TELEPHONE 3D / HOVER
+  ------------------------- */
+  if(phoneFrame && window.matchMedia("(pointer: fine)").matches){
+    phoneFrame.addEventListener('mousemove', e=>{
+      const rect = phoneFrame.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width/2;
+      const y = e.clientY - rect.top - rect.height/2;
+      const rotateX = (-y / rect.height)*15;
+      const rotateY = (x / rect.width)*15;
+      phoneFrame.style.transform = `rotateY(${rotateY-10}deg) rotateX(${rotateX+5}deg)`;
+      phoneFrame.style.boxShadow = `${-x/20}px ${y/20}px 60px rgba(0,0,0,0.6)`;
+    });
+    phoneFrame.addEventListener('mouseleave',()=>{
+      phoneFrame.style.transform='rotateY(-10deg) rotateX(5deg)';
+      phoneFrame.style.boxShadow='0 25px 60px rgba(0,0,0,0.6)';
+    });
+  }
 
 });
