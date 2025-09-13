@@ -81,33 +81,33 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.addEventListener("mouseleave", ()=>document.body.classList.remove("blur-active"));
   }
 
-  /* -------------------------
-     MENU GRAND (scroll lock)
-  ------------------------- */
-  function disableScroll() {
-    const scrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.dataset.scrollY = scrollY;
-  }
+/* -------------------------
+   MENU GRAND (scroll lock uniquement mobile)
+------------------------- */
+function disableScroll() {
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.dataset.scrollY = scrollY;
+}
 
-  function enableScroll() {
-    const scrollY = document.body.dataset.scrollY || 0;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY, 10));
-  }
+function enableScroll() {
+  const scrollY = document.body.dataset.scrollY || 0;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY, 10));
+}
 
-  if(menu && menuGrand){
-    menu.addEventListener('click', ()=>{
-      const isOpen = menuGrand.classList.toggle('clicked');
-      if(isOpen){
-        disableScroll();
-      } else {
-        enableScroll();
-      }
-    });
-  }
+if(menu && menuGrand && window.matchMedia("(pointer: coarse)").matches){
+  menu.addEventListener('click', ()=>{
+    const isOpen = menuGrand.classList.toggle('clicked');
+    if(isOpen){
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  });
+}
 
   /* -------------------------
      EASTER EGG
@@ -248,5 +248,68 @@ document.addEventListener("DOMContentLoaded", () => {
       phoneFrame.style.boxShadow='0 25px 60px rgba(0,0,0,0.6)';
     });
   }
+/* -------------------------
+   LIGHTBOX GALERIE
+------------------------- */
+function openLightbox(img) {
+  const lightbox    = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const overlay     = document.getElementById('lightbox-overlay');
+
+  // Image haute résolution
+  lightboxImg.src = img.dataset.large || img.src;
+
+  // Overlay = miniature (comme cache de transition)
+  overlay.src = img.src;
+  overlay.classList.remove('slide-out'); // reset si ancienne anim
+
+  // Affiche la lightbox
+  lightbox.classList.add('visible');
+
+  // Lance l’animation de reveal après un court délai
+  setTimeout(() => {
+    overlay.classList.add('slide-out');
+  }, 200);
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  const overlay  = document.getElementById('lightbox-overlay');
+
+  // Reset overlay
+  overlay.classList.remove('slide-out');
+
+  // Cache la lightbox après un petit délai pour laisser le reset propre
+  setTimeout(() => {
+    lightbox.classList.remove('visible');
+  }, 200);
+}
+
+// Fermeture si on clique en dehors de l'image principale
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target.id !== 'lightbox-img' && e.target.id !== 'lightbox-overlay') {
+    closeLightbox();
+  }
+});
+
+/* -------------------------
+   ATTACH LIGHTBOX AUX IMAGES
+------------------------- */
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', () => openLightbox(img));
+});
 
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll('.gallery-item img');
+
+  setInterval(() => {
+    images.forEach(img => {
+      // 1% de zoom maximum
+      const scale = 1 + (Math.random() * 0.02 - 0.01); // entre 0.99 et 1.01
+      img.style.transform = `scale(${scale})`;
+    });
+  }, 5000); // toutes les 0.5s
+});
+
+

@@ -1,132 +1,4 @@
-/* Police Melbourne Bold */
-@font-face {
-  font-family: 'Melbourne';
-  src: url("../../fonts/melbournebold.ttf") format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: 'Melbournethin';
-  src: url("../../fonts/melbourne.ttf") format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: 'Andaluz';
-  src: url("../../fonts/Andaluz-Regular.otf") format('truetype');
-  font-weight: bold;
-}
 
-.Menugrand {display:none;
-
-}body {
-  overflow-x: hidden;
-  display: block;
-  font-family: 'Melbourne', sans-serif;
-  background-color: #020411;
-}
-/* Conteneur fixe : aligne logo et menu */
-.fixed-container {
-  position: fixed;
-  top: 84px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 2000px;
-  max-height:73px;
-  padding: 0 60px;
-  display: flex;
-  align-items: flex-start; /* aligne en haut */
-  justify-content: space-between;
-  z-index: 1000;
-  box-sizing: border-box;
-  pointer-events: none;
-}
-
-.fixed-container .logo-bar,
-.fixed-container .menu {
-  pointer-events: auto;
-}
-
-/* Logo */
-.logo-bar {
-  height: 73px;
-  width: 240px;
-  background: url(../../Image/Grand.webp) no-repeat center/contain;
-}
-.menu a{text-decoration:none;}
-/* Menu */
-.menu {
-  display: flex;
-  gap: 23px;
-  padding: 14px 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 11px;
-  flex-wrap: nowrap;
-  overflow: hidden;
-}
-.menu-item {
-  color: white;
-  font-family: 'Melbourne', sans-serif;
-  font-size: 25px;
-  width: 166px;
-  min-height: 53px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  overflow: hidden;
-  transition: height 0.3s ease;
-  height: 53px;
-}
-
-.menu-item.expanded {
-  height: 159px;
-}
-
-/* Bouton aide */
-.help-button {
-  color:white;
-  width: 53px;
-  height: 53px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  user-select: none;
-  font-family: 'Melbourne', sans-serif;
-  transition: background-color 0.2s ease;
-}
-
-.help-button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Boîte d’aide */
-.help-box {
-  position: absolute;
-  top: 125%; /* juste en dessous du menu */
-  right: 55px; /* aligné à droite du menu */
-  width: 360px;
-  height: 160px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 11px;
-  padding: 16px;
-  font-family: 'Melbourne', sans-serif;
-  color: white;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 998;
-}
-
-.help-box.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
 .Partie {
   overflow: hidden;
   display: flex;
@@ -190,13 +62,6 @@ background-clip: text;}
   font-size: 30px;
   background-color: white;
 }
-.blur-wrapper {
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-body.blur-active .blur-wrapper {
-  filter: blur(3px) brightness(0.7);
-}
 .carrousel-section {
   margin-top: 200px;
   margin-bottom:200px;
@@ -205,11 +70,6 @@ body.blur-active .blur-wrapper {
   color: white;
 }
 
-.section-title {
-  margin: 10vh;
-  font-size: 90px;
-  font-family: 'Andaluz', serif;
-}
 
 .carrousel {
   display: flex;

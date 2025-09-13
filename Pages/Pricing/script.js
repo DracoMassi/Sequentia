@@ -75,20 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* -------------------------
-     MENU BLUR + GRAND
-  ------------------------- */
-  if(menu && !window.matchMedia("(pointer: coarse)").matches){
-    menu.addEventListener("mouseenter", ()=>document.body.classList.add("blur-active"));
-    menu.addEventListener("mouseleave", ()=>document.body.classList.remove("blur-active"));
-  }
-  if(menu && menuGrand){
-    menu.addEventListener('click', ()=>{
-      menuGrand.classList.toggle('clicked');
-      document.body.style.overflow = menuGrand.classList.contains('clicked') ? 'hidden' : '';
-    });
-  }
-
-  /* -------------------------
      EASTER EGG
   ------------------------- */
   document.addEventListener("keydown", e=>{
@@ -99,6 +85,50 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(()=>buyButton.classList.remove("rainbow"), 10000);
     }
   });
+
+/* -------------------------
+   MENU BLUR + GRAND
+------------------------- */
+if (menu) {
+  // Effet blur uniquement desktop
+  if (!window.matchMedia("(pointer: coarse)").matches) {
+    menu.addEventListener("mouseenter", () => document.body.classList.add("blur-active"));
+    menu.addEventListener("mouseleave", () => document.body.classList.remove("blur-active"));
+  }
+
+  // Gestion ouverture/fermeture du menu
+  if (menuGrand) {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      // --- Mobile : ouverture + scroll lock
+      function disableScroll() {
+        const scrollY = window.scrollY;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollY}px`;
+        document.body.dataset.scrollY = scrollY;
+      }
+      function enableScroll() {
+        const scrollY = document.body.dataset.scrollY || 0;
+        document.body.style.position = "";
+        document.body.style.top = "";
+        window.scrollTo(0, parseInt(scrollY, 10));
+      }
+
+      menu.addEventListener("click", () => {
+        const isOpen = menuGrand.classList.toggle("clicked");
+        if (isOpen) {
+          disableScroll();
+        } else {
+          enableScroll();
+        }
+      });
+    } else {
+      // --- Desktop : juste toggle sans scroll lock
+      menu.addEventListener("click", () => {
+        menuGrand.classList.toggle("clicked");
+      });
+    }
+  }
+}
 
   /* -------------------------
      GRADIENT GRID

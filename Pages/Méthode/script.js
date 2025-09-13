@@ -81,33 +81,33 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.addEventListener("mouseleave", ()=>document.body.classList.remove("blur-active"));
   }
 
-  /* -------------------------
-     MENU GRAND (scroll lock)
-  ------------------------- */
-  function disableScroll() {
-    const scrollY = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.dataset.scrollY = scrollY;
-  }
+/* -------------------------
+   MENU GRAND (scroll lock uniquement mobile)
+------------------------- */
+function disableScroll() {
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.dataset.scrollY = scrollY;
+}
 
-  function enableScroll() {
-    const scrollY = document.body.dataset.scrollY || 0;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY, 10));
-  }
+function enableScroll() {
+  const scrollY = document.body.dataset.scrollY || 0;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY, 10));
+}
 
-  if(menu && menuGrand){
-    menu.addEventListener('click', ()=>{
-      const isOpen = menuGrand.classList.toggle('clicked');
-      if(isOpen){
-        disableScroll();
-      } else {
-        enableScroll();
-      }
-    });
-  }
+if(menu && menuGrand && window.matchMedia("(pointer: coarse)").matches){
+  menu.addEventListener('click', ()=>{
+    const isOpen = menuGrand.classList.toggle('clicked');
+    if(isOpen){
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  });
+}
 
   /* -------------------------
      EASTER EGG

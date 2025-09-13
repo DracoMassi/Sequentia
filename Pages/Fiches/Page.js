@@ -107,13 +107,34 @@ document.addEventListener("DOMContentLoaded", () => {
   /* -------------------------
      MENU GRAND (bloquer scroll)
   ------------------------- */
-  if (menu && menuGrand) {
-    menu.addEventListener('click', () => {
-      menuGrand.classList.toggle('clicked');
-      document.documentElement.style.overflow =
-        menuGrand.classList.contains('clicked') ? 'hidden' : '';
-    });
-  }
+
+/* -------------------------
+   MENU GRAND (scroll lock uniquement mobile)
+------------------------- */
+function disableScroll() {
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.dataset.scrollY = scrollY;
+}
+
+function enableScroll() {
+  const scrollY = document.body.dataset.scrollY || 0;
+  document.body.style.position = '';
+  document.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY, 10));
+}
+
+if(menu && menuGrand && window.matchMedia("(pointer: coarse)").matches){
+  menu.addEventListener('click', ()=>{
+    const isOpen = menuGrand.classList.toggle('clicked');
+    if(isOpen){
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  });
+}
 
   /* -------------------------
      EASTER EGG (SEQUENTIA)
