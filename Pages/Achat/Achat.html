@@ -2,116 +2,217 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <title>Fiches</title>
   <link rel="icon" href="../../Image/favicon.ico" type="image/x-icon">
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
-<script src="script.js" defer></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
+  <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../../Recycling.css">
+  <style>
+    /* Section fiches */
+    .fiches-section {
+      margin-bottom: 20px;
+      width: 70%; /* seulement 70% de l'écran */
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    /* Titre du dossier */
+    .fiches-title {
+      font-size: 28px;
+      font-family: 'Montserrat', sans-serif;
+      color: #a1adff;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      user-select: none;
+    }
+  
+    /* Triangle indicateur */
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 12px solid #a1adff;
+      margin-right: 10px;
+      transition: transform 0.2s ease;
+    }
+  
+    .triangle.open {
+      transform: rotate(90deg); /* pointe vers le bas quand ouvert */
+    }
+  
+    .fiches-list {
+      display: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+  
+    .fiche {
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 15px;
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+  
+    .fiche:hover { transform: scale(1.05); }
+  
+    .fiche a { color: white; text-decoration: none; font-weight: 600; }
+  
+    .fiche .meta { font-size: 13px; color: #aaa; margin-top: 6px; }
+  
+    /* Style quand dossier ouvert */
+    .fiches-section.open .fiches-title {
+      color: #fff;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="fixed-container">
       <a href="../../index.html"><div class="logo-bar" alt="Logo Sequentia" id="logo"></div></a>
-      <div class="menu"><div style="display: none;font-size: 50px;">✕</div>
-      <a href="../../Pages/Méthode/Méthode.html"><div class="menu-item" style="background-color:#483648">Méthodes</div></a>
+      <div class="menu">
+        <div style="display: none;font-size: 50px;">✕</div>
+        <a href="../../Pages/Méthode/Méthode.html"><div class="menu-item" style="background-color:#483648">Méthodes</div></a>
         <a href="../../Pages/Lecture/Lecture.html"><div class="menu-item" style="background-color:#474846">Lecture</div></a>
         <a href="../../Pages/Achat/Achat.html"><div class="menu-item" style="background-color:#3F484C">Achats</div></a>
         <a href="../../Pages/Fiches/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
         <a href="../../Pages/Pricing/Pricing.html"><div class="menu-item" style="background-color:#433E52">Formules</div></a>
         <div class="help-button">?</div>
+      </div>
+      <div class="help-box">Ceci est un message d’aide ou d’explication.</div>
     </div>
-
-    <div class="help-box">Ceci est un message d’aide ou d’explication.</div>
-  </div>
   </header>
-      <div class="blur-wrapper">
-      <div class="Menugrand">
-        <nav class="Menugrand">
-        <ul>
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#produits">Produits</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav></div>
-      <main>
-        <h1 class="section-title">Achats</h1>
-        <div class="Carte bleu">
-          <h2>Analyses Linéaires</h2>
-<input type="text" id="searchInput" placeholder="Tapez pour filtrer..." onkeyup="filterItems()">
-          <p>Retrouvez ici les analyses linéaires de vos œuvres préférées, avec des plans détaillés et des textes surlignés pour faciliter votre compréhension.</p>
-<div id="itemList">
-  <div class="item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III - Plan et Texte surligné.webp" alt="Cyrano de Bergerac - Scène 7 de l’acte III - théâtre"></div>
-  <div class="item"><img src="../../Fichesweb/De l'Égalité des deux sexes - L'importance de se défaire des préjugés- Plan et Texte surligné.webp" alt="De l'Égalité des deux sexes - L'importance de se défaire des préjugés - littérature d'idée"></div>
-  <div class="item"><img src="../../Fichesweb/Destination _ arbre -  Plan et Texte surligné.webp" alt="Destination _ arbre - poésie"></div>
-  <div class="item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="La Colonie - Scène 13 - théâtre"></div>
-  <div class="item"><img src="../../Fichesweb/Manon Lescaut - La Mort de Manon - Plan et Texte surligné.webp" alt="Manon Lescaut - La Mort de Manon - roman"></div>
-  <div class="item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Manon Lescaut - La rencontre entre Manon et Des Grieux - roman"></div>
-  <div class="item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Manon Lescaut - L’Evasion de Saint-Lazare - roman"></div>
-  <div class="item"><img src="../../Fichesweb/Mes forêts - Poème liminaire - Plan et Texte surligné.webp" alt="Mes forêts - Poème liminaire - poésie"></div>
-  <div class="item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Plan et Texte surligné.webp" alt="Mes fôrets - Il fait un temps d’insectes affairés - poésie"></div>
-  <div class="item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Plan et Texte surligné.webp" alt="Mes fôrets - Le feu et les vents - poésie"></div>
-  <div class="item"><img src="../../Fichesweb/Nana - Plan et Texte surligné.webp" alt="Nana - Plan - roman"></div>
-  <div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule - Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
-  <div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule- Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
-  <div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 3 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 3 de l’Acte III - théâtre"></div>
-  <div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 8 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 8 de l’Acte III - théâtre"></div>
-  <div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour -La scène 5 de l’Acte II - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 5 de l’Acte II - théâtre"></div>
+
+  <main>
+    <h1 class="section-title">Achats</h1>
+    <input id="search" placeholder="Cherche par matière ou titre">
+    <div id="fiches"></div>
+
+    <script>
+      const gvizUrl = `https://docs.google.com/spreadsheets/d/1CsFSb2h58PfLOUcPSrkIIG-hyyDuLtgqz4DPzzloX-M/gviz/tq?tqx=out:json&sheet=Fiches`;
+
+      async function loadFiches(){
+        const res = await fetch(gvizUrl);
+        const text = await res.text();
+        const json = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf(')')));
+        const rows = json.table.rows.map(r => ({
+          titre: r.c[0] ? r.c[0].v : '',
+          matiere: r.c[1] ? r.c[1].v : '',
+          lien: r.c[2] ? r.c[2].v : '',
+          date: r.c[3] ? r.c[3].f : '',
+          filename: r.c[4] ? r.c[4].v : '',
+          fileId: r.c[5] ? r.c[5].v : ''
+        })).reverse();
+        window.FICHES = rows;
+        renderGrouped(rows);
+      }
+
+      function renderGrouped(list){
+        const container = document.getElementById('fiches');
+        container.innerHTML = '';
+
+        const groups = {};
+        list.forEach(f => {
+          const key = f.matiere || 'Autres';
+          if(!groups[key]) groups[key] = [];
+          groups[key].push(f);
+        });
+
+        Object.keys(groups).forEach(matiere => {
+          const section = document.createElement('div');
+          section.className = 'fiches-section';
+
+          const title = document.createElement('div');
+          title.className = 'fiches-title';
+          title.textContent = matiere;
+
+          const listDiv = document.createElement('div');
+          listDiv.className = 'fiches-list';
+          listDiv.innerHTML = groups[matiere].map(f => `
+            <div class="fiche">
+              <a href="${f.lien}" target="_blank">${f.titre}</a>
+              <div class="meta">${f.date}</div>
+            </div>
+          `).join('');
+
+          title.onclick = () => {
+            listDiv.style.display = listDiv.style.display === 'grid' ? 'none' : 'grid';
+          };
+
+          section.appendChild(title);
+          section.appendChild(listDiv);
+          container.appendChild(section);
+        });
+      }
+
+      document.getElementById('search').addEventListener('input', e => {
+        const q = e.target.value.toLowerCase();
+        const filtered = window.FICHES.filter(f => 
+          (f.matiere||'').toLowerCase().includes(q) || 
+          (f.titre||'').toLowerCase().includes(q)
+        );
+        renderGrouped(filtered);
+      });
+
+      loadFiches();
+      function renderGrouped(list){
+    const container = document.getElementById('fiches');
+    container.innerHTML = '';
   
-</div>
-</div>
-<div class="Carte vert">
-  <h2>Notions Utiles</h2>
-<input type="text" id="searchInput" placeholder="Tapez pour filtrer..." onkeyup="filterItems()">
-  <p>Retrouvez ici les analyses linéaires de vos œuvres préférées, avec des plans détaillés et des textes surlignés pour faciliter votre compréhension.</p>
-<div id="itemList">
-<div class="item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III - Plan et Texte surligné.webp" alt="Cyrano de Bergerac - Scène 7 de l’acte III - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/De l'Égalité des deux sexes - L'importance de se défaire des préjugés- Plan et Texte surligné.webp" alt="De l'Égalité des deux sexes - L'importance de se défaire des préjugés - littérature d'idée"></div>
-<div class="item"><img src="../../Fichesweb/Destination _ arbre -  Plan et Texte surligné.webp" alt="Destination _ arbre - poésie"></div>
-<div class="item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="La Colonie - Scène 13 - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/Manon Lescaut - La Mort de Manon - Plan et Texte surligné.webp" alt="Manon Lescaut - La Mort de Manon - roman"></div>
-<div class="item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Manon Lescaut - La rencontre entre Manon et Des Grieux - roman"></div>
-<div class="item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Manon Lescaut - L’Evasion de Saint-Lazare - roman"></div>
-<div class="item"><img src="../../Fichesweb/Mes forêts - Poème liminaire - Plan et Texte surligné.webp" alt="Mes forêts - Poème liminaire - poésie"></div>
-<div class="item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Plan et Texte surligné.webp" alt="Mes fôrets - Il fait un temps d’insectes affairés - poésie"></div>
-<div class="item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Plan et Texte surligné.webp" alt="Mes fôrets - Le feu et les vents - poésie"></div>
-<div class="item"><img src="../../Fichesweb/Nana - Plan et Texte surligné.webp" alt="Nana - Plan - roman"></div>
-<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule - Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
-<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule- Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
-<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 3 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 3 de l’Acte III - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 8 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 8 de l’Acte III - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour -La scène 5 de l’Acte II - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 5 de l’Acte II - théâtre"></div>
-
-</div>
-</div>
-<div class="Carte rouge">
-  <h2>Portraits d'Auteurs</h2>
-<input type="text" id="searchInput" placeholder="Tapez pour filtrer..." onkeyup="filterItems()">
-  <p>Retrouvez ici les analyses linéaires de vos œuvres préférées, avec des plans détaillés et des textes surlignés pour faciliter votre compréhension.</p>
-<div id="itemList">
-<div class="item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III - Plan et Texte surligné.webp" alt="Cyrano de Bergerac - Scène 7 de l’acte III - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/De l'Égalité des deux sexes - L'importance de se défaire des préjugés- Plan et Texte surligné.webp" alt="De l'Égalité des deux sexes - L'importance de se défaire des préjugés - littérature d'idée"></div>
-<div class="item"><img src="../../Fichesweb/Destination _ arbre -  Plan et Texte surligné.webp" alt="Destination _ arbre - poésie"></div>
-<div class="item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="La Colonie - Scène 13 - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/Manon Lescaut - La Mort de Manon - Plan et Texte surligné.webp" alt="Manon Lescaut - La Mort de Manon - roman"></div>
-<div class="item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Manon Lescaut - La rencontre entre Manon et Des Grieux - roman"></div>
-<div class="item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Manon Lescaut - L’Evasion de Saint-Lazare - roman"></div>
-<div class="item"><img src="../../Fichesweb/Mes forêts - Poème liminaire - Plan et Texte surligné.webp" alt="Mes forêts - Poème liminaire - poésie"></div>
-<div class="item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Plan et Texte surligné.webp" alt="Mes fôrets - Il fait un temps d’insectes affairés - poésie"></div>
-<div class="item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Plan et Texte surligné.webp" alt="Mes fôrets - Le feu et les vents - poésie"></div>
-<div class="item"><img src="../../Fichesweb/Nana - Plan et Texte surligné.webp" alt="Nana - Plan - roman"></div>
-<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule - Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
-<div class="item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule- Plan et Texte surligné.webp" alt="Olympe de Gouges - Le Postambule - littérature d'idée"></div>
-<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 3 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 3 de l’Acte III - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour - La scène 8 de l’Acte III - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 8 de l’Acte III - théâtre"></div>
-<div class="item"><img src="../../Fichesweb/On ne Badine pas avec l’amour -La scène 5 de l’Acte II - Plan et Texte surligné.webp" alt="On ne Badine pas avec l’amour - La scène 5 de l’Acte II - théâtre"></div>
-
-</div>
-</div>
-</div>
-</main>
+    const groups = {};
+    list.forEach(f => {
+      const key = f.matiere || 'Autres';
+      if(!groups[key]) groups[key] = [];
+      groups[key].push(f);
+    });
+  
+    Object.keys(groups).forEach(matiere => {
+      const section = document.createElement('div');
+      section.className = 'fiches-section';
+  
+      const title = document.createElement('div');
+      title.className = 'fiches-title';
+  
+      // Triangle indicateur
+      const triangle = document.createElement('div');
+      triangle.className = 'triangle';
+      title.appendChild(triangle);
+  
+      const textNode = document.createTextNode(matiere);
+      title.appendChild(textNode);
+  
+      const listDiv = document.createElement('div');
+      listDiv.className = 'fiches-list';
+      listDiv.innerHTML = groups[matiere].map(f => `
+        <div class="fiche">
+          <a href="${f.lien}" target="_blank">${f.titre}</a>
+          <div class="meta">${f.date}</div>
+        </div>
+      `).join('');
+  
+      // Clic pour ouvrir/fermer le dossier
+      title.onclick = () => {
+        const isOpen = listDiv.style.display === 'grid';
+        listDiv.style.display = isOpen ? 'none' : 'grid';
+        triangle.classList.toggle('open', !isOpen);
+        section.classList.toggle('open', !isOpen);
+      };
+  
+      section.appendChild(title);
+      section.appendChild(listDiv);
+      container.appendChild(section);
+    });
+  }
+    </script>
+  </main>
 </body>
 </html>

@@ -47,7 +47,7 @@ h1{
 }
 
 input {
-    width: 90%;
+    width: 60%;
     height: 40px;
     border-radius: 20px;
     font-family: 'Melbourne', sans-serif;
@@ -57,6 +57,7 @@ input {
     background-color: transparent;
     color: rgb(255, 255, 255);
     outline: none;
+    margin-bottom: 20px;
 }
 ::placeholder {
     color: rgb(255, 255, 255);
@@ -64,3 +65,26 @@ input {
     font-family: "Andaluz", serif;
     font-size: 16px;
 }
+.matiere-btn {
+    flex: 0 0 9%;        /* largeur fixe environ 9% */
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .matiere-btn:hover:not(:disabled) {
+    background: white;
+    color: #020411;
+  }
+  
+  .matiere-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #444;
+  }
+  
