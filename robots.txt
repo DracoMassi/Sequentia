@@ -1,5 +1,5 @@
 User-agent: *
 Disallow: /Image/
-Disallow: /Fiches%20Web/
+Disallow: /Fichesweb/
 
-Sitemap: https://www.sequentia.com/sitemap.xml
+Sitemap: https://lasequentia.vercel.app/sitemap.xml
