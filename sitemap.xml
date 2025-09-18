@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <!-- Page d'accueil -->
   <url>
     <loc>https://lasequentia.vercel.app/</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Pages principales -->
   <url>
-    <loc>https://lasequentia.vercel.app/Pages/Methode/Methode.html</loc>
-    <priority>0.9</priority>
+    <loc>https://lasequentia.vercel.app/pages/methode/methode.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lasequentia.vercel.app/Pages/Lecture/Lecture.html</loc>
-    <priority>0.9</priority>
+    <loc>https://lasequentia.vercel.app/pages/lecture/lecture.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lasequentia.vercel.app/Pages/Achat/Achat.html</loc>
-    <priority>0.9</priority>
+    <loc>https://lasequentia.vercel.app/pages/achat/achat.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lasequentia.vercel.app/Pages/Fiches/Fiches.html</loc>
-    <priority>0.9</priority>
+    <loc>https://lasequentia.vercel.app/pages/fiches/fiches.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lasequentia.vercel.app/Pages/Pricing/Pricing.html</loc>
-    <priority>0.9</priority>
+    <loc>https://lasequentia.vercel.app/pages/pricing/pricing.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
 </urlset>
