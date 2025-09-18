@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /Image/
-Disallow: /Fichesweb/
-
-Sitemap: https://lasequentia.vercel.app/sitemap.xml
