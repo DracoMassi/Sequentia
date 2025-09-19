@@ -74,7 +74,7 @@ body {
   font-family: 'Melbourne', sans-serif;
   font-size: clamp(14px, 2vw, 25px);
   width: clamp(80px, 12vw, 166px);
-  min-height: clamp(35px, 6vh, 53px);
+  min-height:53px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 11px;
   display: flex;
