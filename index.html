@@ -24,15 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Accueil.css">
   <link rel="stylesheet" href="Recycling.css">
-  
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-K8B7HNLP');</script>
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4803776883475277" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="Accueil.js" defer></script>
 </head>
 <body>
@@ -41,30 +33,29 @@
   
   <!-- Header -->
   <header>
-    <div class="fixed-container">
-      <div class="logo-bar" aria-label="Logo Sequentia" id="logo"></div>
-      <nav class="menu" aria-label="Menu principal">
-        <a href="Pages/Methode/Methode.html"><div class="menu-item" style="background-color:#483648">Méthodes</div></a>
-        <a href="Pages/Lecture/Lecture.html"><div class="menu-item" style="background-color:#474846">Lecture</div></a>
-        <a href="Pages/Achat/Achat.html"><div class="menu-item" style="background-color:#3F484C">Achats</div></a>
-        <a href="Pages/Fiches/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
-        <a href="Pages/Pricing/Pricing.html"><div class="menu-item" style="background-color:#433E52">Formules</div></a>
-        <button class="help-button" aria-label="Aide">?</button>
-      </nav>
-      <div class="help-box" role="tooltip">Ceci est un message d'aide ou d'explication.</div>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo"><div class="logo-bar" aria-label="Logo Sequentia" id="logo"></div></a>
+
+    <div class="nav-menu">
+      <button class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span><a href="../Site/index.html">Accueil</a></span>
+      </button>
+      
+      <button class="nav-item">
+        <i class="fas fa-box"></i>
+        <span><a href="../Site/Pages/Fiches/Fiches.html">Produits</a></span>
+      </button>
+      
+      <button class="nav-item">
+        <i class="fas fa-envelope"></i>
+        <span><a href="../Site/Pages/Achat/Achat.html">Contact</a></span>
+      </button>
     </div>
+  </div>
+</nav>
   </header>
-  
-  <!-- Menu mobile -->
-  <nav class="menu-mobile" aria-label="Menu mobile">
-    <ul>
-      <li><a href="Pages/Methode/Methode.html">Méthodes</a></li>
-      <li><a href="Pages/Lecture/Lecture.html">Lecture</a></li>
-      <li><a href="Pages/Achat/Achat.html">Achats</a></li>
-      <li><a href="Pages/Fiches/Fiches.html">Fiches</a></li>
-      <li><a href="Pages/Pricing/Pricing.html">Formules</a></li>
-    </ul>
-  </nav>
   
   <!-- Contenu principal -->
   <div class="blur-wrapper">
@@ -74,7 +65,8 @@
         <div class="hero-logo">
           <img src="Image/Grand.webp" alt="Logo Sequentia" />
         </div>
-        <button class="cta-button" id="buy-button">Acheter Maintenant</button>
+        <button class="cta-button" id="buy-button">
+<a href="../Site/Pages/Fiches/Fiches.html">Acheter maintenant</a></button>
         
         <!-- Galerie d'images -->
         <div class="image-gallery">
@@ -90,85 +82,6 @@
         </div>
       </section>
 
-      <!-- Section Qui -->
-      <section class="section section-qui">
-        <div class="section-content">
-          <h2>QUI?</h2>
-          <p>Je suis Massinissa. J'ai eu 20 à l'oral de français et j'envisage d'entrer dans une CPGE en 2026. J'ai commencé à ficher mes cours puis à les partager avec pour seul volonté l'altruisme et le désir de montrer à ceux qui ne le pensaient pas qu'ils sont capables de progresser.</p>
-        </div>
-      </section>
-
-      <!-- Section Textes -->
-      <section class="section section-textes">
-        <div class="textes-header">
-          <div class="circle-top">
-            <span>16</span>
-          </div>
-          <h2 class="title-textes">TEXTES</h2>
-        </div>
-        
-        <div class="grid-textes" id="gradient-grid">
-          <div class="circle-item"><div class="circle-bg"></div><span>1</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>2</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>3</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>4</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>5</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>6</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>7</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>8</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>9</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>10</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>11</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>12</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>13</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>14</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>15</span></div>
-          <div class="circle-item"><div class="circle-bg"></div><span>16</span></div>
-        </div>
-      </section>
-
-      <!-- Section Story -->
-      <section class="section section-story">
-        <div class="story-container">
-          <div class="phone-mockup">
-            <div class="phone-frame">
-              <div class="story-slider" id="story-slider">
-                <div class="story"><img src="Image/Instagram story - 1.png" alt="Story 1"></div>
-                <div class="story"><img src="Image/Instagram story - 2.png" alt="Story 2"></div>
-                <div class="story"><img src="Image/Instagram story - 3.png" alt="Story 3"></div>
-                <div class="story"><img src="Image/Instagram story - 4.png" alt="Story 4"></div>
-                <div class="story"><img src="Image/Instagram story - 5.png" alt="Story 5"></div>
-                <div class="story"><img src="Image/Instagram story - 6.png" alt="Story 6"></div>
-                <div class="story"><img src="Image/Instagram story - 7.png" alt="Story 7"></div>
-                <div class="story"><img src="Image/Instagram story - 8.png" alt="Story 8"></div>
-                <div class="story"><img src="Image/Instagram story - 9.png" alt="Story 9"></div>
-                <div class="story"><img src="Image/Instagram story - 10.png" alt="Story 10"></div>
-              </div>
-            </div>
-            
-            <div class="story-nav-wrapper">
-              <button class="story-nav prev" aria-label="Story précédente">
-                <svg viewBox="0 0 24 24">
-                  <path d="M15 6 L9 12 L15 18" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-              <button class="story-nav next" aria-label="Story suivante">
-                <svg viewBox="0 0 24 24">
-                  <path d="M9 6 L15 12 L9 18" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-          
-          <div class="story-text">
-            <h2>
-              <span>Découvrez</span>
-              <div class="hero-logo"><img src="Image/Grand.webp" alt="Logo Sequentia" /></div>
-            </h2>
-            <p>Vos méthodes et fiches claires, simples et efficaces.<br>Un prix unique, une réussite assurée.</p>
-          </div>
-        </div>
-      </section>
     </main>
   </div>
 

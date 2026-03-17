@@ -1,129 +1,174 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" >
-  <title>Fiches</title>
-  <link rel="icon" href="../../Image/Icon.png" type="image/x-icon">
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<title>Fiches</title>
+
+<link rel="icon" href="../../Image/Icon.png" type="image/x-icon">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../Recycling.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <script src="Page.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="../../Recycling.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4803776883475277"
-     crossorigin="anonymous"></script>
+
 </head>
+
+
 <body>
   <header>
-    <div class="fixed-container">
-      <a href="../../index.html"><div class="logo-bar" alt="Logo Sequentia" id="logo"></div></a>
-      <div class="menu"><div style="display: none;font-size: 50px;">✕</div>
-      <a href="../../Pages/Methode/Methode.html"><div class="menu-item" style="background-color:#483648">Methodes</div></a>
-        <a href="../../Pages/Lecture/Lecture.html"><div class="menu-item" style="background-color:#474846">Lecture</div></a>
-        <a href="../../Pages/Achat/Achat.html"><div class="menu-item" style="background-color:#3F484C">Achats</div></a>
-        <a href="../../Pages/Fiches/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
-        <a href="../../Pages/Pricing/Pricing.html"><div class="menu-item" style="background-color:#433E52">Formules</div></a>
-        <div class="help-button">?</div>
-    </div>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo"><div class="logo-bar" aria-label="Logo Sequentia" id="logo"></div></a>
 
-    <div class="help-box">Ceci est un message d’aide ou d’explication.</div>
+    <div class="nav-menu">
+      <button class="nav-item ">
+        <i class="fas fa-home"></i>
+        <span><a href="../../index.html">Accueil</a></span>
+      </button>
+      
+      <button class="nav-item active">
+        <i class="fas fa-box"></i>
+        <span><a href="../Site/Pages/Fiches/Fiches.html">Produits</a></span>
+      </button>
+      
+      <button class="nav-item">
+        <i class="fas fa-envelope"></i>
+        <span><a href="../Site/Pages/Achat/Achat.html">Contact</a></span>
+      </button>
+    </div>
   </div>
+</nav>
   </header>
-  <div class="Menugrand">
-    <a href="../../Pages/Methode/Methode.html"><div class="menu-item" style="background-color:#483648">Methodes</div></a>
-    <a href="../../Pages/Lecture/Lecture.html"><div class="menu-item" style="background-color:#474846">Lecture</div></a>
-    <a href="../../Pages/Achat/Achat.html"><div class="menu-item" style="background-color:#3F484C">Achats</div></a>
-    <a href="../../Pages/Fiches/Fiches.html"><div class="menu-item" style="background-color:#374352">Fiches</div></a>
-    <a href="../../Pages/Pricing/Pricing.html"><div class="menu-item" style="background-color:#433E52">Formules</div></a>
-  </div>
-  <div class="blur-wrapper">
- <main class="carrousel-section">
-  <h1 class="section-title">Fiches</h1>
-  <button class="cta-button" id="buy-button">Acheter Maintenant</button>
+<div class="site-container">
 
-  <div class="carrousel">
-    <div class="carrousel-track">
-      <div class="carrousel-item"><img src="../../Image/Fiche3.webp" alt="Titre 1"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Titre 2"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Une dénonciation de notre rapport au monde.webp" alt="Titre 3"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Le feu un élément ravageur _ force de vie et de renouveau.webp" alt="Titre 4"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Titre 5"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Introduction et Conclusion.webp" alt="Titre 6"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="Titre 7"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III.webp" alt="Titre 8"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux -  Le Récit d'un coup de foudre - Le Portrait ambigu de Manon(1).webp" alt="Titre 9"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule -  Les armes face à la résistance masculine.webp" alt="Titre 10"></div>
+
+<div class="blur-wrapper">
+
+<h1 class="section-title">Fiches</h1>
+
+<button class="cta-button" id="buy-button">
+Acheter maintenant
+</button>
+<div class="fiches-container">
+  <div class="fiche">
+    <img src="../../Image/Fiche6.webp" alt="Matière">
+    <div class="fiche-text">
+      <h2 class="titre-andaluz">Philosophie</h2>
+      <p>17 notions<br>
+         Fiches Méthodes<br>
+         + de 100 pages
+      </p>
     </div>
   </div>
 
-  <div class="carrousel carrouseldeux">
-    <div class="carrousel-track">
-      <div class="carrousel-item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés -La Forêt, une source d’inspiration et un défit poétique.webp" alt="Titre 1"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Plan et Texte surligné.webp" alt="Titre 2"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Mes fôrets - Il fait un temps d’insectes affairés - Une dénonciation de notre rapport au monde.webp" alt="Titre 3"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Mes fôrets - Le feu et les vents - Le feu un élément ravageur _ force de vie et de renouveau.webp" alt="Titre 4"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - L’Evasion de Saint-Lazare - Plan et Texte surligné.webp" alt="Titre 5"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux - Introduction et Conclusion.webp" alt="Titre 6"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/La Colonie - Scène 13 - Plan et Texte surligné.webp" alt="Titre 7"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Cyrano de Bergerac - Scène 7 de l’acte III.webp" alt="Titre 8"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Manon Lescaut - La rencontre entre Manon et Des Grieux -  Le Récit d'un coup de foudre - Le Portrait ambigu de Manon(1).webp" alt="Titre 9"></div>
-      <div class="carrousel-item"><img src="../../Fichesweb/Olympe de Gouges - Le Postambule -  Les armes face à la résistance masculine.webp" alt="Titre 10"></div>
+  <div class="fiche">
+    <img src="../../Image/Fiche5.webp" alt="Français">
+    <div class="fiche-text">
+      <h2 class="titre-andaluz">Français</h2>
+      <p>16 Oeuvres pour l’Oral<br>
+         Des fiches pour la dissertation<br>
+         Des Fiches Méthodes<br>
+         Des Fiches Concepts clé
+      </p>
     </div>
-</div>
-<div class="Partie">
-  <div class="Piece">
-     <model-viewer
-  src="../../models/1_euro_coin_1999_france_-_simple_scan (1).glb"
-  auto-rotate
-  rotation="0 90 0"
-  rotation-per-second="60deg"
-  camera-controls
-  auto-rotate-delay="100"
-  style="width:100%;height: 100vh; aspect-ratio:1; filter: brightness(0.6);">
-</model-viewer>
   </div>
-  <div class="Piece">
-      <div class="text-lines">
-        <div class="line big-price">1€</div>
-        <div class="line small">C'est le prix</div>
-        <div class="line small">D'une Methode</div>
-        <div class="line medium">D'une réussite</div>
-      </div>
+
+  <div class="fiche">
+    <img src="../../Image/Fiche7.webp" alt="Physique Chimie">
+    <div class="fiche-text">
+      <h2 class="titre-andaluz">Physique Chimie</h2>
+      <p>23 Chapitres<br>
+         Fiches Math en Physique Chimie<br>
+         Exercices Type bac guidés
+      </p>
     </div>
+  </div>
+
+  <div class="fiche">
+    <img src="../../Image/Fiche4.webp" alt="Mathématique">
+    <div class="fiche-text">
+      <h2 class="titre-andaluz">Mathématique</h2>
+      <p>18 Fiches<br>
+         Méthodes claires<br>
+         Outils Hors Programme<br>
+         Fiches Exercices
+      </p>
+    </div>
+  </div>
 </div>
-</div>
+
+<div class="bandeau-footer"></div>
 <footer class="site-footer">
-  <button class="footer-toggle" id="footer-toggle-btn">Mentions légales</button>
-  <div class="footer-panel" id="footer-panel">
-    <button class="footer-close" id="footer-close-btn">✕</button>
-    <div class="footer-columns">
-      <div class="footer-column">
-        <h2>Mentions legales</h2>
-        <p><strong>Editeur :</strong> Massinissa Bouhadouf</p>
-        <p><strong>Email :</strong> contact@example.com</p>
-        <p><strong>Hebergeur :</strong><br>
-          Google LLC<br>
-          1600 Amphitheatre Parkway,<br>
-          Mountain View, CA 94043,<br>
-          Etats-Unis</p>
-        <p><strong>Plateforme de vente :</strong><br>
-          Gumroad – <a href="https://www.gumroad.com" target="_blank">www.gumroad.com</a></p>
-        <p><strong>Statut :</strong><br>
-          Auto-entrepreneur (en cours de creation)</p>
-      </div>
-      <div class="footer-column">
-        <p><strong>Propriete intellectuelle :</strong><br>
-        Tous les contenus sont la propriete de Massinissa Bouhadouf.<br>
-        Toute reproduction est interdite sans autorisation ecrite.</p>
-        <h2>Politique de confidentialite</h2>
-        <p>Ce site ne collecte pas de donnees personnelles. Il ne place pas de cookies de suivi.</p>
-        <p>Des services tiers comme Gumroad ou Google peuvent collecter des donnees selon leur politique.</p>
-        <p>Contact : contact@example.com</p>
-        <p class="copyright">© 2025 Massinissa Bouhadouf. Tous droits reserves.</p>
-      </div>
-    </div>
-  </div>
+
+<button class="footer-toggle" id="footer-toggle-btn">
+Mentions legales
+</button>
+
+<div class="footer-panel" id="footer-panel">
+
+<button class="footer-close" id="footer-close-btn">✕</button>
+
+<div class="footer-columns">
+
+<div class="footer-column">
+
+<h2>Mentions legales</h2>
+
+<p><strong>Editeur :</strong> Massinissa Bouhadouf</p>
+<p><strong>Email :</strong> contact@example.com</p>
+
+<p>
+<strong>Hebergeur :</strong><br>
+Google LLC<br>
+1600 Amphitheatre Parkway<br>
+Mountain View, CA 94043<br>
+Etats-Unis
+</p>
+
+<p>
+<strong>Plateforme de vente :</strong><br>
+Gumroad – <a href="https://www.gumroad.com" target="_blank">www.gumroad.com</a>
+</p>
+
+<p>
+<strong>Statut :</strong><br>
+Auto-entrepreneur (en cours de creation)
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<p>
+<strong>Propriete intellectuelle :</strong><br>
+Tous les contenus sont la propriete de Massinissa Bouhadouf.
+Toute reproduction est interdite sans autorisation ecrite.
+</p>
+
+<h2>Politique de confidentialite</h2>
+
+<p>Ce site ne collecte pas de donnees personnelles.</p>
+<p>Des services tiers comme Gumroad ou Google peuvent collecter des donnees selon leur politique.</p>
+
+<p>Contact : contact@example.com</p>
+
+<p class="copyright">
+© 2025 Massinissa Bouhadouf
+</p>
+
+</div>
+
+</div>
+</div>
+
 </footer>
-</main>
+</div>
 </body>
 </html>
