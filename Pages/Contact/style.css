@@ -87,4 +87,83 @@ input {
     cursor: not-allowed;
     background: #444;
   }
-  
+  /* Styles minimalistes et cohérents avec la charte */
+    .contact-form {
+      max-width: 720px;
+      margin: 2rem auto 4rem;
+      background: var(--bg-color, #ffffff);
+      border-radius: 32px;
+      padding: clamp(1.5rem, 5vw, 2.5rem);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border-color, #e9eef3);
+    }
+    .form-group {
+      margin-bottom: 1.6rem;
+    }
+    .form-group label {
+      display: block;
+      font-family: 'Melbourne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #2c3e2f;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      font-family: 'Melbournethin', 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      background: #fefefe;
+      border: 1px solid #dce5e6;
+      border-radius: 48px;
+      transition: all 0.2s ease;
+      outline: none;
+      color: #1a2e1f;
+    }
+    .form-group textarea {
+      border-radius: 28px;
+      resize: vertical;
+      min-height: 130px;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #487655;
+      box-shadow: 0 0 0 3px rgba(72, 118, 85, 0.2);
+    }
+    .submit-btn {
+      width: 100%;
+      background: #487655;
+      border: none;
+      border-radius: 60px;
+      padding: 1rem;
+      font-family: 'Melbourne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover {
+      background: #2f5a3b;
+      transform: scale(0.98);
+    }
+    .form-note {
+      text-align: center;
+      font-size: 0.7rem;
+      font-family: 'Melbournethin', sans-serif;
+      color: #8f9e8b;
+      margin-top: 1.8rem;
+      border-top: 1px solid #e2e8e4;
+      padding-top: 1.5rem;
+    }
+    .form-note a {
+      color: #487655;
+      text-decoration: underline;
+    }
+    @media (max-width: 640px) {
+      .contact-form { margin: 1rem 1rem 3rem; padding: 1.5rem; }
+    }

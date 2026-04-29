@@ -3,47 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>Fiches</title>
+  <title>Contact – Sequentia</title>
   <link rel="icon" href="../../Image/Icon.png" type="image/x-icon">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>  
-  <script src="script.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome (icônes déjà utilisées dans la navbar) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Vos CSS globaux -->
   <link rel="stylesheet" href="../../Recycling.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Script pour le footer toggle (existant) -->
+  <script src="../../script.js" defer></script>
 </head>
 <body>
+
+  <!-- MÊME HEADER QUE VOTRE SITE -->
   <header>
     <nav class="navbar">
       <div class="nav-container">
-        <a href="#" class="nav-logo">
-          <div class="logo-bar" aria-label="Logo Sequentia" id="logo"></div>
+        <a href="../../index.html" class="nav-logo">
+          <div class="logo-bar" aria-label="Logo Sequentia"></div>
         </a>
-        <div class="nav-menu"><a href="../../index.html">
-          <button class="nav-item">
-            <i class="fas fa-home"></i>
-            <span>Accueil</span></a>
-          </button>
-          <button class="nav-item active"><a href="../../Pages/Fiches/Fiches.html">
-            <i class="fas fa-box"></i>
-            <span>Produits</span></a>
-          </button>
-          <button class="nav-item"><a href="../../Pages/Contact/Contact.html">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span></a>
-          </button>
+        <div class="nav-menu">
+          <a href="../../index.html">
+            <button class="nav-item"><i class="fas fa-home"></i><span>Accueil</span></button>
+          </a>
+          <a href="../../Pages/Fiches/Fiches.html">
+            <button class="nav-item"><i class="fas fa-box"></i><span>Produits</span></button>
+          </a>
+          <a href="../../Pages/Contact/Contact.html">
+            <button class="nav-item active"><i class="fas fa-envelope"></i><span>Contact</span></button>
+          </a>
         </div>
       </div>
     </nav>
   </header>
 
   <main>
-    <h1 class="section-title">Contacts</h1>
-    <input id="search" placeholder="Cherche par matière ou titre">
-    <div id="fiches"></div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4803776883475277"
-    crossorigin="anonymous"></script>
+    <h1 class="section-title">Nous contacter</h1>
 
-    
+    <div class="contact-form">
+      <form action="https://formsubmit.co/lasequentia@gmail.com" method="POST">
+        <!-- Configuration FormSubmit : pas de captcha, objet personnalisé -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="📩 Nouveau message depuis le site Sequentia">
+        <input type="hidden" name="_next" value="https://formsubmit.co/thank-you"> <!-- simple page de remerciement -->
+
+        <div class="form-group">
+          <label><i class="far fa-envelope"></i> Votre email</label>
+          <input type="email" name="email" placeholder="votre@adresse.fr" required>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-pen-fancy"></i> Produit concerné</label>
+          <input type="text" name="article" placeholder="Nom du produit, référence ou lien" required>
+        </div>
+
+        <div class="form-group">
+          <label><i class="far fa-comment-dots"></i> Votre message</label>
+          <textarea name="message" placeholder="Votre demande, question ou retour..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Envoyer →</button>
+        <div class="form-note">
+          ✨ Votre message sera envoyé directement à <strong>lasequentia@gmail.com</strong><br>
+          (service <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a> – aucun stockage)
+        </div>
+      </form>
+    </div>
   </main>
+
+  <!-- Le footer toggle est déjà géré par Recycling.css + script.js -->
+  <!-- (si vous avez un footer fixe, il apparaîtra normalement) -->
 </body>
 </html>
